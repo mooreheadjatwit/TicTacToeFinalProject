@@ -1,4 +1,4 @@
-# Your project name
+# Machine Learning Tic Tac Toe
 
 ## Description
 
@@ -17,6 +17,7 @@ List all the features of your application in the order of priority.
 
 ## Team members
 
-* Roger Federer, Team Lead
-* Tiger Woods, Bug Fixer
+* Max Moynihan, Team Lead
+* Matthew Benedict, Graphics Boi
+* Joshua Moorehead, Exestential Crisis Person
 
