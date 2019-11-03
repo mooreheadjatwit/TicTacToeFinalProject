@@ -33,7 +33,7 @@ List all the features of your application in the order of priority.
 5. Repeating gameplay 
 6. Score keeper 
 7. Best of 3 or until someone wins 
-8.Victory or Loss Screen 
+8. Victory or Loss Screen 
 9. Basic animations 
 10. Sound effects 
 11. Player name / leaderboard support 
