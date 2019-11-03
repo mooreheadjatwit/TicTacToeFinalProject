@@ -42,6 +42,6 @@ List all the features of your application in the order of priority.
 
 ## Team members
 
-* Max Moynihan, Team Lead
-* Matthew Benedict, Graphics Boi
-* Joshua Moorehead, Exestential Crisis Person
+* Max Moynihan, Machine Learning Lead
+* Matthew Benedict, Graphics Department
+* Joshua Moorehead, Chief Integration Officer
