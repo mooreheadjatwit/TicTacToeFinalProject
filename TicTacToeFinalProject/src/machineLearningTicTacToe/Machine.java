@@ -24,6 +24,7 @@ public class Machine {
 		}
 		moves.clear();
 	}
+	
 	public int think(int[] a) {
 		int tri = m.findMutation(a);
 		int[] weights = m.unMutate(brain.get(tri));
@@ -48,6 +49,7 @@ public class Machine {
 		}
 		return -1;
 	}
+	
 	public void learn(int o) {
 		int win = 3;
 		int tie = 1;
@@ -56,6 +58,7 @@ public class Machine {
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;
 		}
 	}
+	
 	public static void writeData(ArrayList<int[]> fullList) throws IOException {
 		FileWriter writer = new FileWriter("TESToutput.txt"); 
 		for(int[] arr : fullList) {
@@ -63,6 +66,7 @@ public class Machine {
 		}
 		writer.close();
 	}
+	
 	public static ArrayList<int[]> readData() throws FileNotFoundException{
 		Scanner scan = new Scanner(new File("TESToutput.txt"));
 		ArrayList<int[]> list = new ArrayList<int[]>();

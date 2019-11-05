@@ -50,6 +50,7 @@ public class Mutator {
 		}
 		return tri;
 	}
+	
 	public int[] unMutate(int[] a) {
 		if (rotated != 0) {
 			a = rotate(a, 4 - rotated);
@@ -65,6 +66,7 @@ public class Mutator {
 		}
 		return a;
 	}
+	
 	private static int[] rotate(int[] B, int num) {
 		int[] a = new int[B.length];
 		for ( int i = 0; i < B.length; i++)
@@ -85,6 +87,7 @@ public class Mutator {
 		}
 		return a;
 	}
+	
 	private static int[] flipX(int[] B) {
 		int[] a = new int[B.length];
 		for ( int i = 0; i < B.length; i++)
@@ -100,6 +103,7 @@ public class Mutator {
 		a[8] = c;
 		return a;
 	}
+	
 	private static int[] flipY(int[] B) {
 		int[] a = new int[B.length];
 		for ( int i = 0; i < B.length; i++)
@@ -115,6 +119,7 @@ public class Mutator {
 		a[8] = c;
 		return a;
 	}
+	
 	public static int trinary(int[] a) {
 		int tri = 0;
 		for (int i = 0; i < 9; i++) {
