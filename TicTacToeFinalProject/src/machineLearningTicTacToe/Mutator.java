@@ -115,7 +115,7 @@ public class Mutator {
 		a[8] = c;
 		return a;
 	}
-	private static int trinary(int[] a) {
+	public static int trinary(int[] a) {
 		int tri = 0;
 		for (int i = 0; i < 9; i++) {
 			tri += a[8 - i] * Math.pow(3, i);
