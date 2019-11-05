@@ -1,14 +1,19 @@
 package machineLearningTicTacToe;
 
+/**
+ * This is the game class it holds all the information on the tic tac toe gameboard
+ * When a new game is created the gameState array is set to all 0s and the number of moves is set to zero
+ * It has a getGameState and setGameState respectively. Also it has the ability to reset the gameState
+ * @author Joshua Moorehead
+ *
+ */
+
 public class Game {
 	private int[] gameState = {0,0,0,0,0,0,0,0,0};
 	private int numMoves;
 	
 	public Game(){
-		for(int i = 0; i < this.gameState.length; i++) {
-			this.gameState[i] = 0;
-		}
-		this.numMoves = 0;
+		this.resetGameState();
 	}
 	
 	public void setGameState(int[] gameState) {
@@ -20,7 +25,7 @@ public class Game {
 		return this.gameState;
 	}
 	
-	public boolean checkVictory(int condition) {
+	public boolean checkVictory(int condition) {//If there are 3 in a row that are all equal to the condition it is true
 		if(gameState[4] == condition) {
 			if(gameState[1] == gameState[4] && gameState[4] == gameState[7]) {
 				return true;
