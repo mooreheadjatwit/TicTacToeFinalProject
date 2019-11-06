@@ -60,7 +60,7 @@ public class Machine {
 	}
 	
 	public static void writeData(ArrayList<int[]> fullList) throws IOException {
-		FileWriter writer = new FileWriter("TESToutput.txt"); 
+		FileWriter writer = new FileWriter("./src/machineLearningTicTacToe/bigBrain.txt"); 
 		for(int[] arr : fullList) {
 		  writer.write(Arrays.toString(arr) + System.lineSeparator());
 		}
@@ -68,7 +68,7 @@ public class Machine {
 	}
 	
 	public static ArrayList<int[]> readData() throws FileNotFoundException{
-		Scanner scan = new Scanner(new File("TESToutput.txt"));
+		Scanner scan = new Scanner(new File("./src/machineLearningTicTacToe/bigBrain.txt"));
 		ArrayList<int[]> list = new ArrayList<int[]>();
 		while (scan.hasNext()){
 		    String line = scan.nextLine();
