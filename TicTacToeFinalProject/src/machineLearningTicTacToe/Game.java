@@ -9,23 +9,27 @@ package machineLearningTicTacToe;
  */
 
 public class Game {
-	private int[] gameState = {0,0,0,0,0,0,0,0,0};
-	private int numMoves;
+	private static int[] gameState = {0,0,0,0,0,0,0,0,0};
+	private static int numMoves;
 	
 	public Game(){
-		this.resetGameState();
+		resetGameState();
 	}
 	
-	public void setGameState(int[] gameState) {
-		this.gameState = gameState;
-		this.numMoves++;
+	public static void setGameState(int[] newGameState) {
+		gameState = newGameState;
+		numMoves++;
 	}
 	
-	public int[] getGameState() {
-		return this.gameState;
+	public static int[] getGameState() {
+		return gameState;
 	}
 	
-	public boolean checkVictory(int condition) {//If there are 3 in a row that are all equal to the condition it is true
+	public static int getNumMoves() {
+		return numMoves;
+	}
+	
+	public static boolean checkVictory(int condition) {//If there are 3 in a row that are all equal to the condition it is true
 		if(gameState[4] == condition) {
 			if(gameState[1] == gameState[4] && gameState[4] == gameState[7]) {
 				return true;
@@ -59,17 +63,17 @@ public class Game {
 		return false;
 	}
 	
-	public boolean checkTie() {
-		if(this.numMoves == 9 && this.checkVictory(1) == false && this.checkVictory(2) == false) {
+	public static boolean checkTie() {
+		if(numMoves == 9 && checkVictory(1) == false && checkVictory(2) == false) {
 			return true;
 		}
 		return false;
 	}
 	
-	public void resetGameState() {
-		for(int i = 0; i < this.gameState.length; i++) {
-			this.gameState[i] = 0;
+	public static void resetGameState() {
+		for(int i = 0; i < gameState.length; i++) {
+			gameState[i] = 0;
 		}
-		this.numMoves = 0;
+		numMoves = 0;
 	}
 }
