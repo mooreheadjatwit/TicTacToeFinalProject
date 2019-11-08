@@ -7,7 +7,7 @@ package machineLearningTicTacToe;
  *
  */
 
-public interface Player {
+public interface iPlayer {
 	void setMove(int move);
 	void play();
 }
