@@ -26,7 +26,7 @@ public class PlayerMove implements Player {
 		System.out.printf("%nChose your move Player%n");
 		int moveNumber = s.nextInt();
 		setMove(moveNumber);
-		s.close();	*/	
+		s.close();*/
 	}
 	
 	public PlayerMove(int moveNumber) {
