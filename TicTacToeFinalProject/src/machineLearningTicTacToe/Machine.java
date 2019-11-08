@@ -11,8 +11,15 @@ import java.util.stream.Stream;
 
 import machineLearningTicTacToe.Mutator;
 
+/**
+ * Machine handles the interfacing with the bigBrain database, thinking, and learning.
+ * @author moynihanm1
+ *
+ */
 public class Machine {
+	//brain is the runtime database to reference and modify
 	private ArrayList<int[]> brain = new ArrayList<int[]>();
+	//moves stores the moves of the past game to learn from
 	private ArrayList<Integer> moves = new ArrayList<Integer>();
 	private Mutator m = new Mutator();
 	
@@ -22,11 +29,19 @@ public class Machine {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		//clears moves for a new game to be played
 		moves.clear();
 	}
 	
+	/**
+	 * Think is the main method of machineLearning. It takes in a gameState array 'a' and returns the index that should be played.
+	 * @param a
+	 * @return
+	 */
 	public int think(int[] a) {
+		//uses the trinary value of the array to get the line# to go to in bigBrain
 		int tri = m.findMutation(a);
+		//re-arranges the weight matrix to be applicable to this mutation
 		int[] weights = m.unMutate(brain.get(tri));
 		int sum = 0;
 		for (int w : weights) {
@@ -34,6 +49,9 @@ public class Machine {
 				sum += w;
 			}
 		}
+		//the following part randomly selects a move according to the weights
+		//it is not very efficient but it is the best I could think of
+		//the logic is similar to that of a roulette wheel
 		int spin = (int)Math.round(sum * 2 * Math.random());
 		int working = 0;
 		int j = (int)Math.floor(Math.random()*9);
@@ -50,6 +68,10 @@ public class Machine {
 		return -1;
 	}
 	
+	/**
+	 * Learn is for after a game is resolved. It goes through its past moves and modifies them according to the outcome 'o'.
+	 * @param o  [0 : tie, 1 : win, 2 : loss]
+	 */
 	public void learn(int o) {
 		int win = 3;
 		int tie = 1;
@@ -59,21 +81,34 @@ public class Machine {
 		}
 	}
 	
+	/**
+	 * WriteData writes the runtime array into storage as 'bigBrain.txt' in the same directory as the classes.
+	 * @param fullList  ArrayList to write
+	 * @throws IOException
+	 */
 	public static void writeData(ArrayList<int[]> fullList) throws IOException {
 		FileWriter writer = new FileWriter("./src/machineLearningTicTacToe/bigBrain.txt"); 
+		//modification of a method from StackOverflow User Andrey Adamovich : 
+		//https://stackoverflow.com/questions/6548157/how-to-write-an-arraylist-of-strings-into-a-text-file
 		for(int[] arr : fullList) {
-		  writer.write(Arrays.toString(arr) + System.lineSeparator());
+			writer.write(Arrays.toString(arr) + System.lineSeparator());
 		}
 		writer.close();
 	}
 	
+	/**
+	 * ReadData parses the data from bigBrain file and returns it as the ArrayList 
+	 * @return ArrayList of int arrays to be used as the runtime array.
+	 * @throws FileNotFoundException
+	 */
 	public static ArrayList<int[]> readData() throws FileNotFoundException{
 		Scanner scan = new Scanner(new File("./src/machineLearningTicTacToe/bigBrain.txt"));
 		ArrayList<int[]> list = new ArrayList<int[]>();
 		while (scan.hasNext()){
 		    String line = scan.nextLine();
 			if(line.length() > 2) {
-				//A modification of a method found from StackOverFlow user YoYo : https://stackoverflow.com/questions/18838781/converting-string-array-to-an-integer-array
+				//A modification of a method found from StackOverFlow user YoYo : 
+				//https://stackoverflow.com/questions/18838781/converting-string-array-to-an-integer-array
 				list.add(Stream.of(line.substring(1, line.length() - 1).split(", ")).mapToInt(Integer::parseInt).toArray());
 			} else {
 				list.add(new int[] {});
