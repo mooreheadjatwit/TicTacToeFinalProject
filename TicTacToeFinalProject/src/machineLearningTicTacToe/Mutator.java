@@ -1,10 +1,22 @@
 package machineLearningTicTacToe;
 
+/**
+ * Mutator is class for all the methods related to mutation (flips and rotations) of the gameboard.
+ * @author moynihanm1
+ *
+ */
 public class Mutator {
+	//instance variables store the most recent mutation values so it can be undone after fetching the weight array
 	private int rotated = 0;
 	private boolean flipX = false;
 	private boolean flipY = false;
 
+	/**
+	 * FindMutation iterates through combinations of flips and rotations
+	 *  to find a common trinary value for each strategic equivalence
+	 * @param a is a gameState array 
+	 * @return the smallest trinary value int
+	 */
 	public int findMutation(int[] a) {
 		int tri = trinary(a);
 		for (int i = 1; i < 4; i++) {
@@ -51,6 +63,11 @@ public class Mutator {
 		return tri;
 	}
 	
+	/**
+	 * UnMutate uses the instance variables to perform the opposite transformations on a given weight array.
+	 * @param a an int array, in this project always the weight array
+	 * @return the input array but transformed to be relevant to the current gameState
+	 */
 	public int[] unMutate(int[] a) {
 		if (rotated != 0) {
 			a = rotate(a, 4 - rotated);
@@ -67,11 +84,20 @@ public class Mutator {
 		return a;
 	}
 	
+	/**
+	 * Rotate is a hardcoded rotate mapping that is done num of times.
+	 * @param B input array
+	 * @param num # of times to rotate
+	 * @return a copy of input array but rotated 
+	 */
 	private static int[] rotate(int[] B, int num) {
 		int[] a = new int[B.length];
-		for ( int i = 0; i < B.length; i++)
+		//this is necessary to return a new array instead of modifying the passed array because the object address is passed.
+		for ( int i = 0; i < B.length; i++) {
 			a[i] = B[i];
+		}
 		for (int i = 0; i < num; i++) {
+			//temp variables, 'eh' in place of 'a' because it was used elsewhere
 			int eh = a[0];
 			int b = a[1];
 			int c = a[2];
@@ -83,15 +109,21 @@ public class Mutator {
 			a[7] = a[5];
 			a[8] = c;
 			a[5] = b;
-			
 		}
 		return a;
 	}
 	
+	/**
+	 * FlipX is simply a hardcoded flip in the X direction.
+	 * @param B input array
+	 * @return copy of input array but flipped
+	 */
 	private static int[] flipX(int[] B) {
 		int[] a = new int[B.length];
-		for ( int i = 0; i < B.length; i++)
+		//again a copy needs to be manually made so the original is not modified
+		for ( int i = 0; i < B.length; i++) {
 			a[i] = B[i];
+		}
 		int eh = a[0];
 		int b = a[3];
 		int c = a[6];
@@ -104,10 +136,16 @@ public class Mutator {
 		return a;
 	}
 	
+	/**
+	 * FlipY is simply a hardcoded flip in the Y direction.
+	 * @param B input array
+	 * @return copy of input array but flipped
+	 */
 	private static int[] flipY(int[] B) {
 		int[] a = new int[B.length];
-		for ( int i = 0; i < B.length; i++)
+		for ( int i = 0; i < B.length; i++) {
 			a[i] = B[i];
+		}
 		int eh = a[0];
 		int b = a[1];
 		int c = a[2];
@@ -120,6 +158,13 @@ public class Mutator {
 		return a;
 	}
 	
+	/**
+	 * Trinary is a base-3 to base-10 converter where the input is an array representation of the gameState.
+	 * The reason for this is so the database can be accessed easily where the gameState is just the line number,
+	 * if we did that without conversion the database would be 200 million lines long instead of 17 thousand.
+	 * @param a input array (base-3)
+	 * @return int in base-10
+	 */
 	public static int trinary(int[] a) {
 		int tri = 0;
 		for (int i = 0; i < 9; i++) {
