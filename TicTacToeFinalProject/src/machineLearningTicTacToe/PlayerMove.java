@@ -2,7 +2,7 @@ package machineLearningTicTacToe;
 
 import java.util.Scanner;
 
-public class PlayerMove implements Player {
+public class PlayerMove implements iPlayer {
 	private int[] moveIndex;
 	private int moveNumber;
 	private int numWins;
