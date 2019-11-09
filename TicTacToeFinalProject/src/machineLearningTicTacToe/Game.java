@@ -10,7 +10,7 @@ package machineLearningTicTacToe;
 
 public class Game {
 	private static int[] gameState = {0,0,0,0,0,0,0,0,0};
-	private static int numMoves;
+	private static int numMoves = 0;
 	
 	public Game(){
 		resetGameState();
@@ -29,6 +29,11 @@ public class Game {
 		return numMoves;
 	}
 	
+	/**
+	 * Checks for victory for a specific player, given by the condition.
+	 * @param condition  '1' or '2' to specify which player to check for victory
+	 * @return true if won, else: false
+	 */
 	public static boolean checkVictory(int condition) {//If there are 3 in a row that are all equal to the condition it is true
 		if(gameState[4] == condition) {
 			if(gameState[1] == gameState[4] && gameState[4] == gameState[7]) {
@@ -63,8 +68,12 @@ public class Game {
 		return false;
 	}
 	
+	/**
+	 * Checks for a tie in the current gameState. If neither has won and the game is full.
+	 * @return boolean true if tied, else: false
+	 */
 	public static boolean checkTie() {
-		if(numMoves == 9 && checkVictory(1) == false && checkVictory(2) == false) {
+		if(numMoves == 9 && !checkVictory(1) && !checkVictory(2)) {
 			return true;
 		}
 		return false;
