@@ -1,9 +1,7 @@
 package machineLearningTicTacToe;
 
-import java.util.Scanner;
-
 public class PlayerMove implements iPlayer {
-	private int[] moveIndex;
+	private int[] moveIndex = {0,0,0,0,0,0,0,0,0};
 	private int moveNumber;
 	private int numWins;
 	
@@ -19,8 +17,11 @@ public class PlayerMove implements iPlayer {
 	}
 	
 	public PlayerMove(int moveNumber) {
-		this.moveNumber = moveNumber;
-		this.moveIndex = Game.getGameState();
+		if(moveNumber == 1 || moveNumber == 2) {
+			this.moveNumber = moveNumber;
+		} else {
+			System.out.println("Error: Incorrect PlayerMove usage");
+		}
 		this.numWins = 0;
 	}
 	
