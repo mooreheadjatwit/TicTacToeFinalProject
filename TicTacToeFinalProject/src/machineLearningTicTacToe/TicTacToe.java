@@ -33,14 +33,15 @@ public class TicTacToe extends Application {
 	}
 
 	public Text xOorblank(int n) {
+
 		int state = n;
 		Text xText = new Text("X");
 		Text oText = new Text("O");
 		Text blankText = new Text(" ");
 
-		xText.setStyle("-fx-font: 32 arial;");
-		oText.setStyle("-fx-font: 32 arial;");
-		blankText.setStyle("-fx-font: 32 arial;");
+		xText.setStyle("-fx-font: 50 arial;");
+		oText.setStyle("-fx-font: 50 arial;");
+		blankText.setStyle("-fx-font: 50 arial;");
 
 		if (state > 0) {
 			if (state == 1) {
@@ -64,6 +65,7 @@ public class TicTacToe extends Application {
 
 		window = primaryStage;
 		///////////////////////// create GridPane below/////////////////////////////////
+		
 		GridPane startBox = new GridPane();
 		GridPane.setConstraints(startBox, 0, 1);
 
@@ -116,6 +118,10 @@ public class TicTacToe extends Application {
 		controls.add(btn9, 2, 2);
 		secondScene.setLeft(controls);
 
+		
+
+
+		
 ////////////////////////////////////////////////Controls Above////////////////
 
 ////////////////////////////////////////////////Board View Below//////////////
@@ -303,17 +309,17 @@ public class TicTacToe extends Application {
 
 		});
 
-		int zeroCount = 0;
-		
-		for(int i = 0; i < array.length; i++) {
-			if(array[i] == 0) {
-				zeroCount++;
-				
-			}	
-		}
-		if(zeroCount == 0) {
-			//set game over
-		}
+//		int zeroCount = 0;
+//		
+//		for(int i = 0; i < array.length; i++) {
+//			if(array[i] == 0) {
+//				zeroCount++;
+//				
+//			}	
+//		}
+//		if(zeroCount == 0) {
+//			//set game over
+//		}
 
 //////////////////////////////////////////////////Board Event Handling Above////////////
 
