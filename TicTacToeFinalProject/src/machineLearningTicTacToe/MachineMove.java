@@ -1,14 +1,17 @@
 package machineLearningTicTacToe;
 
 public class MachineMove implements iPlayer {
-
+	//private int turn = 0;
+	
+	public MachineMove(int turn) {
+		//this.turn = turn;
+	}
 	@Override
 	public void setMove(int move) {
-		// TODO Auto-generated method stub
+		//Game.setGameState(n);
 
 	}
 
-	//@Override
 	public void play() {
 		// TODO Auto-generated method stub
 
