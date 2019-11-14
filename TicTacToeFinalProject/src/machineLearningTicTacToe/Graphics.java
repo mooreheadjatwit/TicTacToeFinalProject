@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class TicTacToe extends Application {
+public class Graphics extends Application {
 
 	Stage window;
 	Scene start, game, victory, loss;
