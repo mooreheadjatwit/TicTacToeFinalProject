@@ -8,7 +8,7 @@ public class MachineMove implements iPlayer {
 
 	}
 
-	@Override
+	//@Override
 	public void play() {
 		// TODO Auto-generated method stub
 

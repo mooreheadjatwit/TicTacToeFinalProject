@@ -16,6 +16,15 @@ public class Game {
 		resetGameState();
 	}
 	
+	public static void printGameState() {//This won't be used as it is just to test console playing
+		for(int i = 1; i < 10; i++) {
+			System.out.printf("%d", gameState[i-1]);
+			if(i%3 ==0) {
+				System.out.println();
+			}
+		}
+	}
+	
 	public static void setGameState(int[] newGameState) {
 		gameState = newGameState;
 		numMoves++;

@@ -9,24 +9,13 @@ public class PlayerMove implements iPlayer {
 	
 	@Override
 	public void setMove(int move) {
-		moveIndex[move] = this.moveNumber;
-		Game.setGameState(moveIndex);
-	}
-
-	@Override
-	public void play() {
-		/*Scanner s = new Scanner(System.in);
-		this.moveIndex = Game.getGameState();
-		for(int i = 1; i < this.moveIndex.length + 1; i++) {
-			System.out.printf("%d", this.moveIndex[i-1]);
-			if(i%3 == 0) {
-				System.out.println();
-			}
+		if(move < 9 && move >= 0) {
+			moveIndex[move] = this.moveNumber;
+			Game.setGameState(moveIndex);
 		}
-		System.out.printf("%nChose your move Player%n");
-		int moveNumber = s.nextInt();
-		setMove(moveNumber);
-		s.close();*/
+		else {
+			System.out.println("Please supply a valid input");
+		}
 	}
 	
 	public PlayerMove(int moveNumber) {
