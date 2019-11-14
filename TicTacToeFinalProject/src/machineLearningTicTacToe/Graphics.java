@@ -74,12 +74,13 @@ public class Graphics extends Application {
 		hello.setFont(Font.font(50));
 
 		////////////////////////// create button below////////////////////////////////
-		Button change = new Button("Click to go to scene 2");
-		change.setOnAction(e -> window.setScene(game));
+		Button pvp = new Button("Player vs Player");
+		pvp.setOnAction(e -> window.setScene(game));
 
 		///////////////////////// set gridPane/////////////////////////////////////////
 		startBox.add(hello, 0, 0);
-		startBox.add(change, 0, 1);
+		startBox.add(pvp, 0, 1);
+		//startBox.add(pvm, 0, 2);
 
 		//////////////////////// create scene///////////////////////////////////
 		start = new Scene(startBox, 600, 600);
