@@ -94,4 +94,11 @@ public class Game {
 		}
 		numMoves = 0;
 	}
+	
+	public static boolean isValid(int move) {
+		if(gameState[move] == 0) {
+			return true;
+		}
+		return false;
+	}
 }
