@@ -89,7 +89,7 @@ public class Game {
 	}
 	
 	public static void resetGameState() {
-		for(int i = 0; i < gameState.length; i++) {
+		for(int i = 0; i < 9; i++) {
 			gameState[i] = 0;
 		}
 		numMoves = 0;
