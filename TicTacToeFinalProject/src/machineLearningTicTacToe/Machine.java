@@ -60,8 +60,8 @@ public class Machine {
 				working += weights[i % 9];
 			}
 			if( working >= spin) {
-				moves.add(Mutator.trinary(a));
-				moves.add(i % 9);
+				moves.add(tri);
+				moves.add(m.mutateIndex(i % 9));
 				return i % 9;
 			}
 		}
@@ -78,6 +78,11 @@ public class Machine {
 		int loss = -2;
 		for (int i = 0; i < moves.size(); i += 2) {
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;
+		}
+		try {
+			writeData(brain);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	

@@ -1,5 +1,6 @@
 package machineLearningTicTacToe;
 
+
 public class MachineMove implements iPlayer {
 	//int to represent which player the machine is playing for.
 	private int moveNumber = 0;
@@ -24,6 +25,9 @@ public class MachineMove implements iPlayer {
 	
 	@Override
 	public void setMove(int move) {
+		if(move < 0 || move > 8) {
+			System.out.println("Error: setMove used incorrectly");
+		}
 		int[] temp = Game.getGameState();
 		temp[move] = this.moveNumber;
 		Game.setGameState(temp);
@@ -34,8 +38,11 @@ public class MachineMove implements iPlayer {
 	 */
 	public void play() {
 		this.moveIndex = Game.getGameState();
-		this.setMove(mech.think(moveIndex));
-
+		int move = mech.think(moveIndex);
+		if(moveIndex[move] != 0) {
+			System.out.println("Think has given an invalid index.");
+		}
+		this.setMove(move);
 	}
 
 	public int getNumWins() {
@@ -44,6 +51,9 @@ public class MachineMove implements iPlayer {
 
 	public void setNumWins() {
 		this.numWins++;
+	}
+	public void learn(int o) {
+		this.mech.learn(o);
 	}
 
 }

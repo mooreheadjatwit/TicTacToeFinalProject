@@ -1,5 +1,7 @@
 package machineLearningTicTacToe;
 
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +18,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import machineLearningTicTacToe.Game;
 
 public class Graphics extends Application {
 
@@ -58,7 +61,7 @@ public class Graphics extends Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		launch(args);
+		//launch(args);
 	}
 
 	public void start(Stage primaryStage) throws Exception {
@@ -328,5 +331,28 @@ public class Graphics extends Application {
 		window.setTitle("TicTacToe");
 		window.show();
 
+	}
+	public static int boardDisplay(int[] moveIndex) {
+		//////////////////////
+		//TEMP PRINT METHOD 
+		//////////////////////
+		@SuppressWarnings("resource")
+		Scanner s = new Scanner(System.in);
+		Game.printGameState();
+		System.out.println("Player 1 chose your move");
+		boolean valid = false;
+		int move = -1;
+		while(!valid) {
+			move = s.nextInt();
+			if(move >= 0 && move < 9 && moveIndex[move] == 0 ) {
+				valid = true;
+			} else {
+				System.out.println("Please enter an availible index [0-8]");
+			}
+		}
+		///////////////////////////
+		//END TEMP PRINT METHOD
+		///////////////////////////
+		return move;
 	}
 }

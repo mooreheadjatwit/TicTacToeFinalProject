@@ -9,5 +9,5 @@ package machineLearningTicTacToe;
 
 public interface iPlayer {
 	void setMove(int move);
-	//void play();
+	void play();
 }

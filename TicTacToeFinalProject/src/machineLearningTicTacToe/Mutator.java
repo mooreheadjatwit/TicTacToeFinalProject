@@ -19,6 +19,9 @@ public class Mutator {
 	 */
 	public int findMutation(int[] a) {
 		int tri = trinary(a);
+		rotated = 0;
+		flipX = false;
+		flipY = false;
 		for (int i = 1; i < 4; i++) {
 			if(trinary(rotate(a,i)) < tri) {
 				tri = trinary(rotate(a,i));
@@ -27,14 +30,17 @@ public class Mutator {
 		}
 		if(trinary(flipX(a)) < tri) {
 			tri = trinary(flipX(a));
+			rotated = 0;
 			flipX = true;
 		}
 		if(trinary(flipY(a)) < tri) {
 			tri = trinary(flipY(a));
+			rotated = 0;
 			flipY = true;
 		}
 		if(trinary(flipY(flipX(a))) < tri) {
 			tri = trinary(flipY(flipX(a)));
+			rotated = 0;
 			flipY = true;
 			flipX = true;
 		}
@@ -69,21 +75,40 @@ public class Mutator {
 	 * @return the input array but transformed to be relevant to the current gameState
 	 */
 	public int[] unMutate(int[] a) {
-		if (rotated != 0) {
-			a = rotate(a, 4 - rotated);
-			rotated = 0;
+		if(a.length != 9) {
+			System.out.println("Error: unMutate used incorrectly.");
+			System.out.println("tri case may not be in database");
+			System.exit(0);
 		}
-		if (flipX) {
+		if (this.rotated != 0) {
+			a = rotate(a, 4 - this.rotated);
+		}
+		if (this.flipX) {
 			a = flipX(a);
-			flipX = false;
 		}
-		if (flipY) {
+		if (this.flipY) {
 			a = flipY(a);
-			flipY = false;
 		}
 		return a;
 	}
 	
+	public int mutateIndex(int a) {
+		int[] temp = {0,0,0,0,0,0,0,0,0};
+		temp[a] = 1;
+		if(flipX) {
+			temp = flipX(temp);
+		}
+		if(flipY) {
+			temp = flipY(temp);
+		}
+		temp = rotate(temp, rotated);
+		for(int i = 0; i < 9; i++) {
+			if(temp[i] == 1) {
+				return i;
+			}
+		}
+		return a;
+	}
 	/**
 	 * Rotate is a hardcoded rotate mapping that is done num of times.
 	 * @param B input array
