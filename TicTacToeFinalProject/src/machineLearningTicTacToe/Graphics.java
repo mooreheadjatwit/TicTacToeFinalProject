@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 public class Graphics extends Application {
 	boolean Replay = false;
-	int index;
+	static int index;
 	Stage window;
 	static Scene start;
 	Scene game;
@@ -490,8 +490,7 @@ loss = new Scene(victoryScreen,600,600);
 
 
 	public static int boardDisplay(int[] moveIndex) {
-		return -1;
-		//////////////////////
+	////////////
 		//TEMP PRINT METHOD 
 		//////////////////////
 		/*
@@ -513,7 +512,7 @@ loss = new Scene(victoryScreen,600,600);
 		///////////////////////////
 		//END TEMP PRINT METHOD
 		///////////////////////////
-		/*
+		
 		BorderPane secondScene = new BorderPane();
 		Scene game = new Scene(secondScene, 600, 600);
 		
@@ -545,7 +544,7 @@ loss = new Scene(victoryScreen,600,600);
 		secondScene.setLeft(controls);
 		
 		
-		int index = 0;
+		//int index = 0;
 		btn1.setOnAction(e -> {
 
 			if (moveIndex[0] == 0) {
@@ -560,129 +559,104 @@ loss = new Scene(victoryScreen,600,600);
 
 		btn2.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[1]) == true) {
-				moveIndex[1] = 1;
+			if (moveIndex[1] == 0) {
+				
 				index = 1;
-			//	board.add(xOorblank(moveIndex[1]), 1, 0);
-				TurnX = false;
-			} else if( isFull(moveIndex[1]) == true){
-				moveIndex[1] = 2;
-				index = 1;
-			//	board.add(xOorblank(moveIndex[1]), 1, 0);
-				TurnX = true;
+			
+			} else {
+				
+				
 			}
 
 		});
 
 		btn3.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[2]) == true) {
-				moveIndex[2] = 1;
+			if (moveIndex[2] == 0) {
+				
 				index = 2;
-			//	board.add(xOorblank(moveIndex[2]), 2, 0);
-				TurnX = false;
-			} else if(isFull(moveIndex[2]) == true){
-				moveIndex[2] = 2;
-				index = 2;
-			//	board.add(xOorblank(moveIndex[2]), 2, 0);
-				TurnX = true;
+			
+			} else {
+				
+				
 			}
 
 		});
 
 		btn4.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[3]) == true) {
-				moveIndex[3] = 1;
+			if (moveIndex[3] == 0) {
+				
 				index = 3;
-			//	board.add(xOorblank(moveIndex[3]), 0, 1);
-				TurnX = false;
-			} else if(isFull(moveIndex[3]) == true){
-				moveIndex[3] = 2;
-				index = 3;
-			//	board.add(xOorblank(moveIndex[3]), 0, 1);
-				TurnX = true;
+			
+			} else {
+				
+				
+			
 			}
 
 		});
 
 		btn5.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[4]) == true) {
-				moveIndex[4] = 1;
+			if (moveIndex[4] == 0) {
+				
 				index = 4;
-				//board.add(xOorblank(moveIndex[4]), 1, 1);
-				TurnX = false;
-			} else if( isFull(moveIndex[4]) == true){
-				moveIndex[4] = 2;
-				index = 4;
-				//board.add(xOorblank(moveIndex[4]), 1, 1);
-				TurnX = true;
+				
+			} else {
+				
 			}
 
 		});
 
 		btn6.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[5]) == true) {
-				moveIndex[5] = 1;
+			if (moveIndex[5] == 0) {
+				
 				index = 5;
-				//board.add(xOorblank(moveIndex[5]), 2, 1);
-				TurnX = false;
-			} else if(isFull(moveIndex[5]) == true){
-				moveIndex[5] = 2;
-				index = 5;
-				//board.add(xOorblank(moveIndex[5]), 2, 1);
-				TurnX = true;
+				
+			} else {
+				
 			}
 
 		});
 
 		btn7.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[6]) == true) {
-				moveIndex[6] = 1;
-				index = 6;
-				//board.add(xOorblank(moveIndex[6]), 0, 2);
-				TurnX = false;
+			if (moveIndex[6] == 0) {
 				
-			} else if(isFull(moveIndex[6]) == true){
-				moveIndex[6] = 2;
 				index = 6;
-				//board.add(xOorblank(moveIndex[6]), 0, 2);
-				TurnX = true;
+				
+				
+			} else{
+				
 			}
 
 		});
 
 		btn8.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[7]) == true) {
-				moveIndex[7] = 1;
+			if (moveIndex[7] == 0) {
+				
 				index = 7;
-				//board.add(xOorblank(moveIndex[7]), 1, 2);
-				TurnX = false;
-			} else if( isFull(moveIndex[7]) == true){
-				moveIndex[7] = 2;
-				index = 7;
-				//board.add(xOorblank(moveIndex[7]), 1, 2);
-				TurnX = true;
+				
+			} else {
+				
+			
 			}
 
 		});
 
 		btn9.setOnAction(e -> {
 
-			if (TurnX == true && isFull(moveIndex[8]) == true) {
-				moveIndex[8] =1;
+			if (moveIndex[8] == 0) {
+				
 				index = 8;
-				//board.add(xOorblank(moveIndex[8]), 2, 2);
-				TurnX = false;
-			} else if( isFull(moveIndex[8]) == true){
-				moveIndex[8] = 2;
-				index = 8;
-				//board.add(xOorblank(moveIndex[8]), 2, 2);
-				TurnX = true;
+				
+			} else {
+				
+				
+				
 			}
 			
 		});
@@ -741,7 +715,7 @@ loss = new Scene(victoryScreen,600,600);
 		
 		return index;	
 		
-		*/
+		
 	
 	}
 }
