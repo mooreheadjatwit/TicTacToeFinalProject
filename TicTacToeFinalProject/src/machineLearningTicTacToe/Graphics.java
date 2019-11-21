@@ -490,6 +490,7 @@ loss = new Scene(victoryScreen,600,600);
 
 
 	public static int boardDisplay(int[] moveIndex) {
+		return -1;
 		//////////////////////
 		//TEMP PRINT METHOD 
 		//////////////////////
@@ -512,6 +513,7 @@ loss = new Scene(victoryScreen,600,600);
 		///////////////////////////
 		//END TEMP PRINT METHOD
 		///////////////////////////
+		/*
 		BorderPane secondScene = new BorderPane();
 		Scene game = new Scene(secondScene, 600, 600);
 		
@@ -739,7 +741,7 @@ loss = new Scene(victoryScreen,600,600);
 		
 		return index;	
 		
-		
+		*/
 	
 	}
 }
