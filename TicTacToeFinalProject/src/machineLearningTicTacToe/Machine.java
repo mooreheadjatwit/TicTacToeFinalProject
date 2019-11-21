@@ -77,7 +77,11 @@ public class Machine {
 		int tie = 1;
 		int loss = -2;
 		for (int i = 0; i < moves.size(); i += 2) {
+			
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;
+			if(brain.get(moves.get(i))[moves.get(i + 1)] < 0) {
+				brain.get(moves.get(i))[moves.get(i + 1)] = 0;
+			}
 		}
 		try {
 			writeData(brain);
