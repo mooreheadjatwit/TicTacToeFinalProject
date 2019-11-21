@@ -1,5 +1,6 @@
 package machineLearningTicTacToe;
 
+
 import java.util.Scanner;
 
 import javafx.application.Application;
@@ -18,12 +19,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import machineLearningTicTacToe.Game;
 
 public class Graphics extends Application {
-
+	boolean Replay = false;
+	int index;
 	Stage window;
-	Scene start, game, victory, loss;
+	static Scene start;
+	Scene game;
+	Scene victory;
+	Scene loss;
 
 	private boolean TurnX = true;
 	private int[] array = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -35,66 +39,66 @@ public class Graphics extends Application {
 		return (n == 0) ? true:false;
 	}
 
-	public Text xOorblank(int n) {
-
-		int state = n;
-		Text xText = new Text("X");
-		Text oText = new Text("O");
-		Text blankText = new Text(" ");
-
-		xText.setStyle("-fx-font: 50 arial;");
-		oText.setStyle("-fx-font: 50 arial;");
-		blankText.setStyle("-fx-font: 50 arial;");
-
-		if (state > 0) {
-			if (state == 1) {
-				return xText;
-			} else {
-				return oText;
-			}
-
-		} else {
-			return blankText;
-		}
-
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//launch(args);
-	}
-
-	public void start(Stage primaryStage) throws Exception {
-
-		window = primaryStage;
-		///////////////////////// create GridPane below/////////////////////////////////
+	
+//////////////////////////////////////////////////Initial Display below
+	public static boolean initialDisplay() {
 		
+		
+		
+		
+		
+		 
+		int [] bool = new int[2];
+		 
+		 
 		GridPane startBox = new GridPane();
-		GridPane.setConstraints(startBox, 0, 1);
+		GridPane.setConstraints(startBox, 1, 1);
+		start= new Scene(startBox,600,600);
 
 		//////////////////////// create greeting below///////////////////////////////
 		Text hello = new Text("welcome to tic tac toe");
 		hello.setFont(Font.font(50));
 
 		////////////////////////// create button below////////////////////////////////
-		Button pvp = new Button("Player vs Player");
-		pvp.setOnAction(e -> window.setScene(game));
+		Button PvP = new Button("pvp");
+		Button PvM = new Button("pvm");
+		PvP.setOnAction(e -> {
+			bool[0] = 1;
+			
+			
+		});
+		PvM.setOnAction(e -> {
+			
+			bool[1] = 1;
+			
+		});
 
 		///////////////////////// set gridPane/////////////////////////////////////////
 		startBox.add(hello, 0, 0);
-		startBox.add(pvp, 0, 1);
-		//startBox.add(pvm, 0, 2);
+		startBox.add(PvP, 0, 1);
+		startBox.add(PvM, 1, 1);
 
-		//////////////////////// create scene///////////////////////////////////
-		start = new Scene(startBox, 600, 600);
+	
+		
+		
+		return (bool[0] == 1) ? true:false;
 
+	
+		
+		
+		// create new button for pvm 
+		
+		
+		
+		
+	}
+	
+	
+	///////////////////////////////////////////////array return below
+	public int boardDisplay () {
 		BorderPane secondScene = new BorderPane();
 		game = new Scene(secondScene, 600, 600);
-
-/////////////////////////////////////////////////////Start Scene Above//////////////		
-
-/////////////////////////////////////////////////////Controls Below/////////////		
-
+		
 		GridPane controls = new GridPane();
 		GridPane.setConstraints(controls, 2, 2);
 		controls.setAlignment(Pos.BASELINE_CENTER);
@@ -121,15 +125,157 @@ public class Graphics extends Application {
 		controls.add(btn8, 1, 2);
 		controls.add(btn9, 2, 2);
 		secondScene.setLeft(controls);
+		
+		
+		
+		btn1.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[0]) == true) {
+				array[0] = 1;
+				index = 0;
+			//	board.add(xOorblank(array[0]), 0, 0);
+				TurnX = false;
+			} else if(isFull(array[0]) == true){
+				array[0] = 2;
+				index = 0;
+			//	board.add(xOorblank(array[0]), 0, 0);
+				TurnX = true;
+			}
+
+			
+			
+		});
+
+		btn2.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[1]) == true) {
+				array[1] = 1;
+				index = 1;
+			//	board.add(xOorblank(array[1]), 1, 0);
+				TurnX = false;
+			} else if( isFull(array[1]) == true){
+				array[1] = 2;
+				index = 1;
+			//	board.add(xOorblank(array[1]), 1, 0);
+				TurnX = true;
+			}
+
+		});
+
+		btn3.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[2]) == true) {
+				array[2] = 1;
+				index = 2;
+			//	board.add(xOorblank(array[2]), 2, 0);
+				TurnX = false;
+			} else if(isFull(array[2]) == true){
+				array[2] = 2;
+				index = 2;
+			//	board.add(xOorblank(array[2]), 2, 0);
+				TurnX = true;
+			}
+
+		});
+
+		btn4.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[3]) == true) {
+				array[3] = 1;
+				index = 3;
+			//	board.add(xOorblank(array[3]), 0, 1);
+				TurnX = false;
+			} else if(isFull(array[3]) == true){
+				array[3] = 2;
+				index = 3;
+			//	board.add(xOorblank(array[3]), 0, 1);
+				TurnX = true;
+			}
+
+		});
+
+		btn5.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[4]) == true) {
+				array[4] = 1;
+				index = 4;
+				//board.add(xOorblank(array[4]), 1, 1);
+				TurnX = false;
+			} else if( isFull(array[4]) == true){
+				array[4] = 2;
+				index = 4;
+				//board.add(xOorblank(array[4]), 1, 1);
+				TurnX = true;
+			}
+
+		});
+
+		btn6.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[5]) == true) {
+				array[5] = 1;
+				index = 5;
+				//board.add(xOorblank(array[5]), 2, 1);
+				TurnX = false;
+			} else if(isFull(array[5]) == true){
+				array[5] = 2;
+				index = 5;
+				//board.add(xOorblank(array[5]), 2, 1);
+				TurnX = true;
+			}
+
+		});
+
+		btn7.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[6]) == true) {
+				array[6] = 1;
+				index = 6;
+				//board.add(xOorblank(array[6]), 0, 2);
+				TurnX = false;
+				
+			} else if(isFull(array[6]) == true){
+				array[6] = 2;
+				index = 6;
+				//board.add(xOorblank(array[6]), 0, 2);
+				TurnX = true;
+			}
+
+		});
+
+		btn8.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[7]) == true) {
+				array[7] = 1;
+				index = 7;
+				//board.add(xOorblank(array[7]), 1, 2);
+				TurnX = false;
+			} else if( isFull(array[7]) == true){
+				array[7] = 2;
+				index = 7;
+				//board.add(xOorblank(array[7]), 1, 2);
+				TurnX = true;
+			}
+
+		});
+
+		btn9.setOnAction(e -> {
+
+			if (TurnX == true && isFull(array[8]) == true) {
+				array[8] =1;
+				index = 8;
+				//board.add(xOorblank(array[8]), 2, 2);
+				TurnX = false;
+			} else if( isFull(array[8]) == true){
+				array[8] = 2;
+				index = 8;
+				//board.add(xOorblank(array[8]), 2, 2);
+				TurnX = true;
+			}
+			
+		});
 
 		
-
-
-		
-////////////////////////////////////////////////Controls Above////////////////
-
-////////////////////////////////////////////////Board View Below//////////////
-
 		GridPane board = new GridPane();
 		GridPane.setConstraints(board, 2, 2);
 
@@ -180,158 +326,169 @@ public class Graphics extends Application {
 		board.add(border9, 2, 2);
 
 		secondScene.setCenter(board);
-
-////////////////////////////////////////////////Board View Above/////////////////////	
-
-///////////////////////////////////////////////Board Event Handling Below///////////
-
-		btn1.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[0]) == true) {
-				array[0] = 1;
-
-				board.add(xOorblank(array[0]), 0, 0);
-				TurnX = false;
-			} else if(isFull(array[0]) == true){
-				array[0] = 2;
-				board.add(xOorblank(array[0]), 0, 0);
-				TurnX = true;
-			}
-
-		});
-
-		btn2.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[1]) == true) {
-				array[1] = 1;
-				board.add(xOorblank(array[1]), 1, 0);
-				TurnX = false;
-			} else if( isFull(array[1]) == true){
-				array[1] = 2;
-				board.add(xOorblank(array[1]), 1, 0);
-				TurnX = true;
-			}
-
-		});
-
-		btn3.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[2]) == true) {
-				array[2] = 1;
-				board.add(xOorblank(array[2]), 2, 0);
-				TurnX = false;
-			} else if(isFull(array[2]) == true){
-				array[2] = 2;
-				board.add(xOorblank(array[2]), 2, 0);
-				TurnX = true;
-			}
-
-		});
-
-		btn4.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[3]) == true) {
-				array[3] = 1;
-				board.add(xOorblank(array[3]), 0, 1);
-				TurnX = false;
-			} else if(isFull(array[3]) == true){
-				array[3] = 2;
-				board.add(xOorblank(array[3]), 0, 1);
-				TurnX = true;
-			}
-
-		});
-
-		btn5.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[4]) == true) {
-				array[4] = 1;
-				board.add(xOorblank(array[4]), 1, 1);
-				TurnX = false;
-			} else if( isFull(array[4]) == true){
-				array[4] = 2;
-				board.add(xOorblank(array[4]), 1, 1);
-				TurnX = true;
-			}
-
-		});
-
-		btn6.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[5]) == true) {
-				array[5] = 1;
-				board.add(xOorblank(array[5]), 2, 1);
-				TurnX = false;
-			} else if(isFull(array[5]) == true){
-				array[5] = 2;
-				board.add(xOorblank(array[5]), 2, 1);
-				TurnX = true;
-			}
-
-		});
-
-		btn7.setOnAction(e -> {
-
-			if (TurnX == true && isFull(array[6]) == true) {
-				array[6] = 1;
-				board.add(xOorblank(array[6]), 0, 2);
-				TurnX = false;
+		
+		Replay = false;
+		return index;	
+		
+		
+	}
+	
+	
+	//////////////////////Victory screen below
+	
+	public boolean victoryScreen () {
+		
+		
+		
+		BorderPane vicPane = new BorderPane();
+		Text vicText = new Text("congrats, you have won!");
+		
+		vicPane.setAlignment(vicText, Pos.TOP_CENTER);
+			
+		Button replay = new Button("Press to replay Tic Tac Toe");
+		
+		vicPane.setAlignment(replay, Pos.BASELINE_CENTER);
+		
+		
+			replay.setOnAction(e -> {
 				
-			} else if(isFull(array[6]) == true){
-				array[6] = 2;
-				board.add(xOorblank(array[6]), 0, 2);
-				TurnX = true;
+				Replay = true;
+				
+			});
+		
+		
+		
+		return Replay;
+			
+	}
+	
+	
+public boolean lossScreen () {
+		
+		
+		
+		BorderPane vicPane = new BorderPane();
+		Text vicText = new Text("Unfortunatly, you have lost!");
+		
+		vicPane.setAlignment(vicText, Pos.TOP_CENTER);
+			
+		Button replay = new Button("Press to replay Tic Tac Toe");
+		
+		vicPane.setAlignment(replay, Pos.BASELINE_CENTER);
+		
+		
+			replay.setOnAction(e -> {
+				
+				Replay = true;
+				
+			});
+		
+		
+		
+		return Replay;
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// not needed
+	public Text xOorblank(int n) {
+		int state = n;
+		Text xText = new Text("X");
+		Text oText = new Text("O");
+		Text blankText = new Text(" ");
+
+		xText.setStyle("-fx-font: 32 arial;");
+		oText.setStyle("-fx-font: 32 arial;");
+		blankText.setStyle("-fx-font: 32 arial;");
+
+		
+		if (state > 0) {
+			if (state == 1) {
+				return xText;
+			} else {
+				return oText;
 			}
 
-		});
+		} else {
+			return blankText;
+		}
 
-		btn8.setOnAction(e -> {
+	}
+//////////////////////////////////////////////////Main Method////////
+	public static void main(String[] args) {
+		
+		
+		
+		launch(args);
+	}
 
-			if (TurnX == true && isFull(array[7]) == true) {
-				array[7] = 1;
-				board.add(xOorblank(array[7]), 1, 2);
-				TurnX = false;
-			} else if( isFull(array[7]) == true){
-				array[7] = 2;
-				board.add(xOorblank(array[7]), 1, 2);
-				TurnX = true;
-			}
+	public void start(Stage primaryStage) throws Exception {
+		
+		window = primaryStage;
+	
+////////////////////////////////////////////////Victory View Below//////////////
 
-		});
+BorderPane victoryScreen = new BorderPane();
+Text vText = new Text("You Have Won!");
+victoryScreen.setAlignment(vText, Pos.TOP_CENTER);
 
-		btn9.setOnAction(e -> {
+Button replay = new Button("Press to replay");
 
-			if (TurnX == true && isFull(array[8]) == true) {
-				array[8] = 1;
-				board.add(xOorblank(array[8]), 2, 2);
-				TurnX = false;
-			} else if( isFull(array[8]) == true){
-				array[8] = 2;
-				board.add(xOorblank(array[8]), 2, 2);
-				TurnX = true;
-			}
+victoryScreen.setAlignment(replay, Pos.TOP_CENTER);
 
-		});
+replay.setOnAction(e -> {
 
-//		int zeroCount = 0;
-//		
-//		for(int i = 0; i < array.length; i++) {
-//			if(array[i] == 0) {
-//				zeroCount++;
-//				
-//			}	
-//		}
-//		if(zeroCount == 0) {
-//			//set game over
-//		}
+	window.setScene(game);
 
-//////////////////////////////////////////////////Board Event Handling Above////////////
+});
 
-		window.setScene(start);
+victory = new Scene(victoryScreen,600,600);
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+BorderPane lossScreen = new BorderPane();
+Text lText = new Text("You Have Lost!");
+lossScreen.setAlignment(lText, Pos.TOP_CENTER);
+
+Button replay2 = new Button("Press to replay");
+
+lossScreen.setAlignment(replay2, Pos.TOP_CENTER);
+
+replay2.setOnAction(e -> {
+
+	window.setScene(game);
+
+});
+
+loss = new Scene(victoryScreen,600,600);
+
+
+
+
+
+
+
+		window.setScene((start));
 		window.setTitle("TicTacToe");
 		window.show();
 
 	}
+
+
 	public static int boardDisplay(int[] moveIndex) {
 		//////////////////////
 		//TEMP PRINT METHOD 
