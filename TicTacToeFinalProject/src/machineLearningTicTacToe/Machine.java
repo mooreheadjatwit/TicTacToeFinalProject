@@ -44,9 +44,18 @@ public class Machine {
 		//re-arranges the weight matrix to be applicable to this mutation
 		int[] weights = m.unMutate(brain.get(tri));
 		int sum = 0;
+		int totalOptions = 0;
 		for (int w : weights) {
 			if(w > 0) {
+				totalOptions++;
 				sum += w;
+			}
+		}
+		if(totalOptions == 1) {
+			for (int i = 0; i < 9; i++) {
+				if(weights[i] > 0) {
+					return i;
+				}
 			}
 		}
 		//the following part randomly selects a move according to the weights
