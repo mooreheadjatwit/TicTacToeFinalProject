@@ -39,7 +39,7 @@ public class MachineMove implements iPlayer {
 	public void play() {
 		this.moveIndex = Game.getGameState();
 		int move = mech.think(moveIndex);
-		if(moveIndex[move] != 0) {
+		if(move < 0 || move > 8 || moveIndex[move] != 0) {
 			System.out.println("Think has given an invalid index.");
 		}
 		this.setMove(move);
