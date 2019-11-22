@@ -7,21 +7,22 @@ public class Main {
 		int outcome;
 		//TODO uncomment this \/\/\/\/\/\/\/\/\/
 		//pvp = Graphics.initialDisplay();
+		while(true){
 		firstTurn = (Math.random() < .5);
 		outcome = playGame(pvp, firstTurn);
 		System.out.println(outcome);
+		}
+		/*
 		if(outcome == 1) {
-			//TODO uncomment
-			//Graphics.victoryScreen();
+			Graphics.victoryScreen();
 		}
 		if(outcome == 2) {
-			//TODO uncomment
-			//Graphics.lossScreen();
+			Graphics.lossScreen();
 		}
 		if(outcome == 0) {
-			//TODO uncomment
-			//Graphics.tieScreen();
+			Graphics.tieScreen();
 		}
+		*/
 	}
 	
 	public static int playGame(boolean pvp, boolean firstTurn) {
