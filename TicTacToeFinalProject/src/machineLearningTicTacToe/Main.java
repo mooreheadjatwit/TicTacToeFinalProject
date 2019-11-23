@@ -8,6 +8,7 @@ public class Main {
 		//TODO uncomment this \/\/\/\/\/\/\/\/\/
 		//pvp = Graphics.initialDisplay();
 		while(true){
+			
 		firstTurn = (Math.random() < .5);
 		outcome = playGame(pvp, firstTurn);
 		System.out.println(outcome);
@@ -81,6 +82,40 @@ public class Main {
 			}
 		}
 		return -1;
+	}
+	public static int mvmGame() {
+		MachineMove m1 = new MachineMove(1);
+		MachineMove m2 = new MachineMove(2);
+		boolean firstTurn = (Math.random() < .5);
+		while(true) {
+			if(firstTurn) {
+					m1.play();
+					if(Game.checkVictory(1)) {
+						m1.learn(1);
+						m2.learn(2);
+						return 1;
+					}
+					if(Game.checkTie()) {
+						m1.learn(0);
+						m2.learn(0);
+						return 0;
+					}
+					firstTurn = !firstTurn;
+				} else {
+					m2.play();
+					if(Game.checkVictory(2)) {
+						m2.learn(1);
+						m1.learn(2);
+						return 2;
+					}
+					if(Game.checkTie()) {
+						m1.learn(0);
+						m2.learn(0);
+						return 0;
+					}
+					firstTurn = !firstTurn;
+				}
+			}
 	}
 }
 

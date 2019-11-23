@@ -17,6 +17,7 @@ public class MachineMove implements iPlayer {
 	public MachineMove(int moveNumber) {
 		if(moveNumber == 1 || moveNumber == 2) {
 			this.moveNumber = moveNumber;
+			mech = new Machine(moveNumber);
 		} else {
 			System.out.println("Error: Incorrect MachineMove usage");
 		}

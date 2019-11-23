@@ -22,6 +22,7 @@ public class Machine {
 	//moves stores the moves of the past game to learn from
 	private ArrayList<Integer> moves = new ArrayList<Integer>();
 	private Mutator m = new Mutator();
+	int moveNumber = 0;
 	
 	public Machine() {
 		try {
@@ -29,10 +30,22 @@ public class Machine {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		this.moveNumber = 2;
 		//clears moves for a new game to be played
 		moves.clear();
 	}
 	
+	public Machine(int moveNumber) {
+		try {
+			brain = readData();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		this.moveNumber = moveNumber;
+		//clears moves for a new game to be played
+		moves.clear();
+	}
+
 	/**
 	 * Think is the main method of machineLearning. It takes in a gameState array 'a' and returns the index that should be played.
 	 * @param a
@@ -40,7 +53,12 @@ public class Machine {
 	 */
 	public int think(int[] a) {
 		//uses the trinary value of the array to get the line# to go to in bigBrain
-		int tri = m.findMutation(a);
+		int tri = -1;
+		if(this.moveNumber == 2) {
+			tri = m.findMutation(a);
+		} else if(this.moveNumber == 1) {
+			tri = m.findMutation(invert(a));
+		}
 		//re-arranges the weight matrix to be applicable to this mutation
 		int[] weights = m.unMutate(brain.get(tri));
 		int sum = 0;
@@ -99,6 +117,17 @@ public class Machine {
 		}
 	}
 	
+	public static int[] invert(int[] array) {
+		int[] temp = {0,0,0,0,0,0,0,0,0};
+		for(int i = 0; i < array.length; i++) {
+			if(array[i] == 1) {
+				temp[i] = 2;
+			} else if(array[i] == 2){
+				temp[i] = 1;
+			}
+		}
+		return temp;
+	}
 	/**
 	 * WriteData writes the runtime array into storage as 'bigBrain.txt' in the same directory as the classes.
 	 * @param fullList  ArrayList to write
