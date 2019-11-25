@@ -44,6 +44,7 @@ public class Machine {
 		this.moveNumber = moveNumber;
 		//clears moves for a new game to be played
 		moves.clear();
+		m = new Mutator();
 	}
 
 	/**
@@ -60,7 +61,10 @@ public class Machine {
 			tri = m.findMutation(invert(a));
 		}
 		//re-arranges the weight matrix to be applicable to this mutation
+		//System.out.println(tri);
 		int[] weights = m.unMutate(brain.get(tri));
+		//System.out.println(Arrays.toString(weights));
+		//System.out.println(tri);
 		int sum = 0;
 		int totalOptions = 0;
 		for (int w : weights) {
@@ -68,6 +72,11 @@ public class Machine {
 				totalOptions++;
 				sum += w;
 			}
+		}
+		if(sum == 0) {
+			System.out.println("This option has killed itself");
+			System.out.println(tri);
+			System.exit(0);
 		}
 		if(totalOptions == 1) {
 			for (int i = 0; i < 9; i++) {
@@ -79,20 +88,27 @@ public class Machine {
 		//the following part randomly selects a move according to the weights
 		//it is not very efficient but it is the best I could think of
 		//the logic is similar to that of a roulette wheel
-		int spin = (int)Math.round(sum * 2 * Math.random());
+		int spin = (int)Math.round(sum * 2.0 * Math.random());
 		int working = 0;
 		int j = (int)Math.floor(Math.random()*9);
-		for (int i = j; i < sum * 3; i++) {
+		int choice = 0;
+		for (int i = j; i < sum * 100; i++) {
 			if( weights[i % 9] > 0) {
 				working += weights[i % 9];
 			}
 			if( working >= spin) {
 				moves.add(tri);
 				moves.add(m.mutateIndex(i % 9));
-				return i % 9;
+				choice = i % 9;
+				if(a[choice] == 0) {
+					return choice;
+				} else {
+					break;
+				}
 			}
 		}
-		return -1;
+		System.out.println("A think error has occured. Trying again.");
+		return this.think(a);
 	}
 	
 	/**
@@ -101,8 +117,8 @@ public class Machine {
 	 */
 	public void learn(int o) {
 		int win = 3;
-		int tie = 1;
-		int loss = -2;
+		int tie = 0;
+		int loss = -3;
 		for (int i = 0; i < moves.size(); i += 2) {
 			
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;

@@ -18,7 +18,7 @@ public class Game {
 	
 	public static void printGameState() {//This won't be used as it is just to test console playing
 		for(int i = 1; i < 10; i++) {
-			System.out.printf("%d", gameState[i-1]);
+			System.out.printf("%s|", (gameState[i-1] == 0)? " " : (gameState[i-1] == 1)? "o" : "x");
 			if(i%3 ==0) {
 				System.out.println();
 			}

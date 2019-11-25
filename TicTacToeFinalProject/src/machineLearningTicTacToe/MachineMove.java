@@ -45,6 +45,18 @@ public class MachineMove implements iPlayer {
 		}
 		this.setMove(move);
 	}
+	
+	public void randomPlay() {
+		this.moveIndex = Game.getGameState();
+		boolean chosen = false;
+		while(!chosen) {
+			int rando = (int)(Math.random()*9);
+			if(moveIndex[rando] == 0) {
+				setMove(rando);
+				chosen = true;
+			}
+		}
+	}
 
 	public int getNumWins() {
 		return numWins;
