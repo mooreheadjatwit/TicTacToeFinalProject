@@ -88,22 +88,23 @@ public class Machine {
 		//the following part randomly selects a move according to the weights
 		//it is not very efficient but it is the best I could think of
 		//the logic is similar to that of a roulette wheel
-		int spin = (int)Math.round(sum * 2.0 * Math.random());
+		int spin = (int)Math.round(sum * Math.random());
 		int working = 0;
 		int j = (int)Math.floor(Math.random()*9);
 		int choice = 0;
 		for (int i = j; i < sum * 100; i++) {
-			if( weights[i % 9] > 0) {
+			if(weights[i % 9] > 0) {
 				working += weights[i % 9];
-			}
-			if( working >= spin) {
-				moves.add(tri);
-				moves.add(m.mutateIndex(i % 9));
-				choice = i % 9;
-				if(a[choice] == 0) {
-					return choice;
-				} else {
-					break;
+			
+				if(working >= spin) {
+					if(a[i % 9] == 0) {
+						moves.add(tri);
+						moves.add(m.mutateIndex(i % 9));
+						return i % 9;
+					} else {
+						System.out.println("A think error has occured. Trying again.------------");
+						return this.think(a);
+					}
 				}
 			}
 		}
@@ -119,11 +120,25 @@ public class Machine {
 		int win = 3;
 		int tie = 0;
 		int loss = -3;
+		try {
+			this.brain = readData();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
 		for (int i = 0; i < moves.size(); i += 2) {
 			
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;
 			if(brain.get(moves.get(i))[moves.get(i + 1)] < 0) {
 				brain.get(moves.get(i))[moves.get(i + 1)] = 0;
+			}
+			int sum = 0;
+			for(int j = 0; j < 9; j++) {
+				sum += brain.get(moves.get(i))[j];
+			}
+			if(sum / 9 > 50) {
+				for(int k = 0; k < 9; k++) {
+					brain.get(moves.get(i))[k] = (int)Math.ceil(brain.get(moves.get(i))[k]/3.0);
+				}
 			}
 		}
 		try {
