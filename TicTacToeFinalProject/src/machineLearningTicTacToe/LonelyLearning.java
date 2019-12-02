@@ -9,7 +9,7 @@ public class LonelyLearning {
 		int tie = 0;
 		int one = 0;
 		int two = 0;
-		int numGames = 100;
+		int numGames = 1000;
 		Machine test = new Machine(2);
 		int[] array = new int[] {2,0,0,1,1,2,0,0,1};
 		//System.out.println(Mutator.trinary(array));
