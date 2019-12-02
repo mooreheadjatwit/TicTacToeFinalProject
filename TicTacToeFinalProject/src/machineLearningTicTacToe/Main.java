@@ -7,7 +7,7 @@ public class Main {
 		int outcome;
 		//comment
 		//TODO uncomment this \/\/\/\/\/\/\/\/\/
-		//pvp = Graphics.initialDisplay();
+		pvp = InitialDisplay.main(args);
 		while(true){
 			
 		firstTurn = (Math.random() < .5);
