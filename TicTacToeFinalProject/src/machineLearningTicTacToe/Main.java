@@ -5,8 +5,6 @@ public class Main {
 		boolean pvp = false;
 		boolean firstTurn;
 		int outcome;
-		//comment
-		//TODO uncomment this \/\/\/\/\/\/\/\/\/
 		pvp = InitialDisplay.main(args);
 		while(true){
 			

@@ -11,21 +11,24 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class BoardDisplay extends Application{
-	
 static Scene game;
 static int index;
 private boolean TurnX = true;
-private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+private static int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
-	public static void main(String[] args) {
-		
-		launch(args);
-		
+	public int main(String[] args) {
+		moveIndex = Game.getGameState();
+		try {
+			start(Main.window);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return index;
 		
 	}
 
-	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
 		BorderPane secondScene = new BorderPane();
@@ -63,6 +66,7 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 			if (moveIndex[0] == 0) {
 				index = 0;
+				primaryStage.close();
 			} else {
 
 			}
@@ -76,6 +80,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[1] == 0) {
 				
 				index = 1;
+				primaryStage.close();
+
 			
 			} else {
 				
@@ -89,6 +95,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[2] == 0) {
 				
 				index = 2;
+				primaryStage.close();
+
 			
 			} else {
 				
@@ -102,6 +110,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[3] == 0) {
 				
 				index = 3;
+				primaryStage.close();
+
 			
 			} else {
 				
@@ -116,6 +126,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[4] == 0) {
 				
 				index = 4;
+				primaryStage.close();
+
 				
 			} else {
 				
@@ -128,6 +140,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[5] == 0) {
 				
 				index = 5;
+				primaryStage.close();
+
 				
 			} else {
 				
@@ -140,6 +154,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[6] == 0) {
 				
 				index = 6;
+				primaryStage.close();
+
 				
 				
 			} else{
@@ -153,6 +169,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[7] == 0) {
 				
 				index = 7;
+				primaryStage.close();
+
 				
 			} else {
 				
@@ -166,6 +184,8 @@ private int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 			if (moveIndex[8] == 0) {
 				
 				index = 8;
+				primaryStage.close();
+
 				
 			} else {
 				
