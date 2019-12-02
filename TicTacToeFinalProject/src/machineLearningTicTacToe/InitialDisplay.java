@@ -11,6 +11,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class InitialDisplay extends Application {
+	
+	
+	
+	static Scene start;
 	private static boolean pvp = false;
 	private Parent initialDisplay() {
 		StackPane first = new StackPane();
@@ -62,8 +66,10 @@ public class InitialDisplay extends Application {
 		startBox.add(PvP, 0, 1);
 		startBox.add(PvM, 1, 1);
 
-	
-
+		primaryStage.setScene(start);
+		primaryStage.setTitle("TicTacToe");
+		primaryStage.show();
+		
 	
 		
 		
