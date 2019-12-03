@@ -46,7 +46,7 @@ public class TestingGraphicsWithoutEditing extends Application {
 
 	
 	public static int getMove() {
-		return move;
+		return move;//
 	}
 	
 	public static int getChoice() {
