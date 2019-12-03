@@ -31,6 +31,8 @@ public class TestingGraphicsWithoutEditing extends Application{
 	static Scene origin, PvP, PvM, tieScreen, loseScreen, winScreen;
 	static int move = -1;
 	static int pvp = 0;
+	static int playerXWins = 0;
+	static int playerOWins = 0;
 	static int playerWins = 0;
 	static int machineWins = 0;
 	static int numTies = 0;
@@ -89,20 +91,20 @@ public class TestingGraphicsWithoutEditing extends Application{
 	
 	public static Scene updateBoard(boolean newGame) {
 		if(newGame) {
-			move = -1;
-			int[] j = new int[] {0,0,0,0,0,0,0,0,0};
-			setMoveIndex(j);
+			Game.resetGameState();
 		}
-		else {
-			move = -1;
-			setMoveIndex(Game.getGameState());
+		setMoveIndex(Game.getGameState());
+		if(Game.checkVictory(1)) {
+			playerXWins++;
+			return winScreen(1);
 		}
-		/*if(Game.checkVictory(1) == true) {
-			start.setScene(winScreen);
+		if(Game.checkVictory(2)) {
+			playerOWins++;
+			return winScreen(2);
 		}
-		if(Game.checkVictory(2) == true) {
-			start.setScene(loseScreen);
-		}*/
+		if(Game.checkTie()) {
+			return tieScreen();
+		}
 		
 		Button PvM0 = new Button("Location 0");
 		PvM0.setOnAction(e->{
@@ -111,7 +113,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 0;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -122,7 +123,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 1;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -133,7 +133,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 2;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -144,7 +143,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 3;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -155,7 +153,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 4;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -166,7 +163,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 5;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -177,7 +173,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 6;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -188,7 +183,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 7;
 			}
 			start.setScene(updateBoard(false));
 		});
@@ -199,7 +193,6 @@ public class TestingGraphicsWithoutEditing extends Application{
 				Main.setTurn();
 				Game.setGameState(moveIndex);
 				Game.printGameState();
-				move = 8;
 			}
 			start.setScene(updateBoard(false));
 		});
