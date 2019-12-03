@@ -10,14 +10,6 @@ public class LonelyLearning {
 		int one = 0;
 		int two = 0;
 		int numGames = 100;
-		Machine test = new Machine(2);
-		int[] array = new int[] {2,0,0,1,1,2,0,0,1};
-		//System.out.println(Mutator.trinary(array));
-		//for(int i = 0; i < 50; i++)
-		//System.out.println(test.think(array));
-		//Mutator muttate = new Mutator();
-		//System.out.println(muttate.findMutation(array));
-		
 		
 		for(int i = 0; i < numGames; i++) {
 			int outcome = mvmGame(true);
