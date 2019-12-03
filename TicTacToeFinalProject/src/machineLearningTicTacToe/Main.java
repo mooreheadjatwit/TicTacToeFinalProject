@@ -1,6 +1,15 @@
 package machineLearningTicTacToe;
 
 public class Main {
+	private static boolean turn = false;
+	
+	public static void setTurn() {
+		turn = !turn;
+	}
+	
+	public static boolean getTurn() {
+		return turn;
+	}
 	public static void main(String[] args) {
 		boolean pvp = false;
 		boolean firstTurn;

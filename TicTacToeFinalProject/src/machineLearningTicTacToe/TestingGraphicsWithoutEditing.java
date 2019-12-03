@@ -7,43 +7,35 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class TestingGraphicsWithoutEditing extends Application {
+public class TestingGraphicsWithoutEditing extends Application{
 	static Stage start;
-	static Scene origin, PvP, PvM, tieScreen, loseScreen;
+	static Scene origin, PvP, PvM, tieScreen, loseScreen, winScreen;
 	static int move = -1;
 	static int pvp = 0;
-	private static int[] moveIndex = new int[] {0,0,0,0,0,0,0,0,0};
 	static int playerWins = 0;
 	static int machineWins = 0;
 	static int numTies = 0;
-	static JButton PvM0 = new JButton("Location 0");
-	static JButton PvM1 = new JButton("Location 1");
-	static JButton PvM2 = new JButton("Location 2");
-	static JButton PvM3 = new JButton("Location 3");
-	static JButton PvM4 = new JButton("Location 4");
-	static JButton PvM5 = new JButton("Location 5");
-	static JButton PvM6 = new JButton("Location 6");
-	static JButton PvM7 = new JButton("Location 7");
-	static JButton PvM8 = new JButton("Location 8");
-
+	private static int[] moveIndex = new int[] {0,0,0,0,0,0,0,0,0};
+	
 	
 	public static int getMove() {
 		return move;
@@ -54,7 +46,9 @@ public class TestingGraphicsWithoutEditing extends Application {
 	}
 	
 	public static void setMoveIndex(int[] index) {
-		
+		for(int i = 0; i < 9; i++) {
+			moveIndex[i] = index[i];
+		}
 	}
 	
 	public static void setStage(Scene scene) {
@@ -93,361 +87,123 @@ public class TestingGraphicsWithoutEditing extends Application {
 		
 	}
 	
-	public static Scene resetBoard() {
-		move = -1;
-		Game.resetGameState();
-		for(int i = 0; i < 9; i++) {
-			moveIndex[i] = Game.getGameState()[i];
+	public static Scene updateBoard(boolean newGame) {
+		if(newGame) {
+			move = -1;
+			int[] j = new int[] {0,0,0,0,0,0,0,0,0};
+			setMoveIndex(j);
 		}
-//		Button PvM0 = new Button("Location 0");
-//		PvM0.setOnAction(e->{
-//			if(isValid(0)) {
-//				//moveIndex[0] = Main.getTurn() ? 1 : 2;
-//				//Main.setTurn();
-//				//Game.setGameState(moveIndex);
-//				move = 0;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM1 = new Button("Location 1");
-//		PvM1.setOnAction(e->{
-//			if(isValid(1)) {
-////				moveIndex[1] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 1;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM2 = new Button("Location 2");
-//		PvM2.setOnAction(e->{
-//			if(isValid(2)) {
-////				moveIndex[2] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 2;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM3 = new Button("Location 3");
-//		PvM3.setOnAction(e->{
-//			if(isValid(3)) {
-////				moveIndex[3] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 3;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM4 = new Button("Location 4");
-//		PvM4.setOnAction(e->{
-//			if(isValid(4)) {
-////				moveIndex[4] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 4;
-//			}
-//			else {
-//				start.close();
-//			}
-//			start.setScene(updateBoard());
-//		});
-//		Button PvM5 = new Button("Location 5");
-//		PvM5.setOnAction(e->{
-//			if(isValid(5)) {
-////				moveIndex[5] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 5;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM6 = new Button("Location 6");
-//		PvM6.setOnAction(e->{
-//			if(isValid(6)) {
-////				moveIndex[6] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 6;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM7 = new Button("Location 7");
-//		PvM7.setOnAction(e->{
-//			if(isValid(7)) {
-////				moveIndex[7] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 7;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-//		Button PvM8 = new Button("Location 8");
-//		PvM8.setOnAction(e->{
-//			if(isValid(8)) {
-////				moveIndex[8] = Main.getTurn() ? 1 : 2;
-////				Main.setTurn();
-////				Game.setGameState(moveIndex);
-//				move = 8;
-//			}
-//			else {
-//				start.close();
-//			}
-//			//start.setScene(updateBoard());
-//		});
-		/*Button win = new Button("Click to Win");
-		win.setOnAction(e->{
-			playerWins = playerWins + 1;
-			start.setScene(winScreen());
-		});*/
-		Button lose = new Button("Click to Lose");
-		lose.setOnAction(e->{
-			machineWins = machineWins + 1;
-			start.setScene(loseScreen());
-		});
-		Button tie = new Button("Click to tie");
-		tie.setOnAction(e->{
-			numTies = numTies + 1;
-			start.setScene(tieScreen());
-		});
-		Text pvmText = new Text("Player vs Machine");
-		HBox pvmHBox = new HBox(20);
-		pvmHBox.getChildren().addAll(lose, tie);
-		JFrame pvm = new JFrame("TicTacToeLayout");
-		pvm.add(PvM0);
-		pvm.add(PvM1);
-		pvm.add(PvM2);
-		pvm.add(PvM3);
-		pvm.add(PvM4);
-		pvm.add(PvM5);
-		pvm.add(PvM6);
-		pvm.add(PvM7);
-		pvm.add(PvM8);
-		pvm.setLayout(new GridLayout(3,3));
-		pvm.setSize(300,300);
-		pvm.setVisible(true);
-//		pvm1.getChildren().addAll(PvM0, PvM1, PvM2);
-//		HBox pvm2 = new HBox(10);
-//		pvm2.getChildren().addAll(PvM3, PvM4, PvM5);
-//		HBox pvm3 = new HBox(10);
-//		pvm3.getChildren().addAll(PvM6, PvM7, PvM8);
-//		VBox pvmBoard = new VBox(10);
-//		pvmBoard.getChildren().addAll(pvm1, pvm2, pvm3);
-//		VBox pvmDisplay = new VBox(20);
-//		pvmDisplay.getChildren().addAll(pvmText, pvmBoard, pvmHBox);
+		else {
+			move = -1;
+			setMoveIndex(Game.getGameState());
+		}
+		/*if(Game.checkVictory(1) == true) {
+			start.setScene(winScreen);
+		}
+		if(Game.checkVictory(2) == true) {
+			start.setScene(loseScreen);
+		}*/
 		
-		GridPane board = new GridPane();
-		GridPane.setConstraints(board, 2, 2);
-
-		Rectangle border0 = new Rectangle(200, 200);
-		border0.setFill(null);
-		border0.setStroke(Color.BLACK);
-
-		Rectangle border1 = new Rectangle(200, 200);
-		border1.setFill(null);
-		border1.setStroke(Color.BLACK);
-
-		Rectangle border2 = new Rectangle(200, 200);
-		border2.setFill(null);
-		border2.setStroke(Color.BLACK);
-
-		Rectangle border3 = new Rectangle(200, 200);
-		border3.setFill(null);
-		border3.setStroke(Color.BLACK);
-
-		Rectangle border4 = new Rectangle(200, 200);
-		border4.setFill(null);
-		border4.setStroke(Color.BLACK);
-
-		Rectangle border5 = new Rectangle(200, 200);
-		border5.setFill(null);
-		border5.setStroke(Color.BLACK);
-
-		Rectangle border6 = new Rectangle(200, 200);
-		border6.setFill(null);
-		border6.setStroke(Color.BLACK);
-
-		Rectangle border7 = new Rectangle(200, 200);
-		border7.setFill(null);
-		border7.setStroke(Color.BLACK);
-
-		Rectangle border8 = new Rectangle(200, 200);
-		border8.setFill(null);
-		border8.setStroke(Color.BLACK);
-
-		board.add(border0, 0, 0);
-		board.add(border1, 1, 0);
-		board.add(border2, 2, 0);
-		board.add(border3, 0, 1);
-		board.add(border4, 1, 1);
-		board.add(border5, 2, 1);
-		board.add(border6, 0, 2);
-		board.add(border7, 1, 2);
-		board.add(border8, 2, 2);
-		HBox pvmDisplay1 = new HBox(30);
-		pvmDisplay1.getChildren().addAll(board);
-		Scene scene = new Scene(pvmDisplay1, 1000, 800);
-		return scene;
-	}
-	
-	public static Scene updateBoard() {
-		Game.printGameState();
-		for(int i = 0; i < 9; i++) {
-			moveIndex[i] = Game.getGameState()[i];
-		}
 		Button PvM0 = new Button("Location 0");
 		PvM0.setOnAction(e->{
 			if(isValid(0)) {
-				//moveIndex[0] = Main.getTurn() ? 1 : 2;
-				//Main.setTurn();
-				//Game.setGameState(moveIndex);
-				//Game.printGameState();
+				moveIndex[0] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 0;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM1 = new Button("Location 1");
 		PvM1.setOnAction(e->{
 			if(isValid(1)) {
-				//moveIndex[1] = Main.getTurn() ? 1 : 2;
-				//Main.setTurn();
-				//Game.setGameState(moveIndex);
-				//Game.printGameState();
+				moveIndex[1] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 1;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM2 = new Button("Location 2");
 		PvM2.setOnAction(e->{
 			if(isValid(2)) {
-//				moveIndex[2] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[2] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 2;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM3 = new Button("Location 3");
 		PvM3.setOnAction(e->{
 			if(isValid(3)) {
-//				moveIndex[3] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[3] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 3;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM4 = new Button("Location 4");
 		PvM4.setOnAction(e->{
 			if(isValid(4)) {
-//				moveIndex[4] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[4] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 4;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM5 = new Button("Location 5");
 		PvM5.setOnAction(e->{
 			if(isValid(5)) {
-//				moveIndex[5] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[5] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 5;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM6 = new Button("Location 6");
 		PvM6.setOnAction(e->{
 			if(isValid(6)) {
-//				moveIndex[6] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[6] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 6;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM7 = new Button("Location 7");
 		PvM7.setOnAction(e->{
 			if(isValid(7)) {
-//				moveIndex[7] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[7] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 7;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
 		Button PvM8 = new Button("Location 8");
 		PvM8.setOnAction(e->{
 			if(isValid(8)) {
-//				moveIndex[8] = Main.getTurn() ? 1 : 2;
-//				Main.setTurn();
-//				Game.setGameState(moveIndex);
-//				Game.printGameState();
+				moveIndex[8] = Main.getTurn() ? 1 : 2;
+				Main.setTurn();
+				Game.setGameState(moveIndex);
+				Game.printGameState();
 				move = 8;
 			}
-			else {
-				start.close();
-			}
-			//start.setScene(updateBoard());
+			start.setScene(updateBoard(false));
 		});
-		/*Button win = new Button("Click to Win");
-		win.setOnAction(e->{
-			playerWins = playerWins + 1;
-			start.setScene(winScreen());
-		});*/
-		Button lose = new Button("Click to Lose");
+		/*Button lose = new Button("Click to Lose");
 		lose.setOnAction(e->{
 			machineWins = machineWins + 1;
 			start.setScene(loseScreen());
@@ -456,10 +212,10 @@ public class TestingGraphicsWithoutEditing extends Application {
 		tie.setOnAction(e->{
 			numTies = numTies + 1;
 			start.setScene(tieScreen());
-		});
+		});*/
 		Text pvmText = new Text("Player vs Machine");
 		HBox pvmHBox = new HBox(20);
-		pvmHBox.getChildren().addAll(lose, tie);
+		//pvmHBox.getChildren().addAll(lose, tie);
 		HBox pvm1 = new HBox(10);
 		pvm1.getChildren().addAll(PvM0, PvM1, PvM2);
 		HBox pvm2 = new HBox(10);
@@ -589,7 +345,7 @@ public class TestingGraphicsWithoutEditing extends Application {
 		Text playAgain = new Text("Would you like to play again?");
 		Button yesAgain = new Button("Yes");
 		yesAgain.setOnAction(e->{ 
-			PvM = resetBoard();
+			PvM = updateBoard(true);
 			start.setScene(PvM);
 		});
 		Button noAgain = new Button("No");
@@ -611,7 +367,7 @@ public class TestingGraphicsWithoutEditing extends Application {
 		Text playAgain = new Text("Would you like to play again?");
 		Button yesAgain = new Button("Yes");
 		yesAgain.setOnAction(e-> {
-			PvM = resetBoard();
+			PvM = updateBoard(true);
 			start.setScene(PvM);
 		});
 		Button noAgain = new Button("No");
@@ -650,17 +406,15 @@ public class TestingGraphicsWithoutEditing extends Application {
 		Scene origin = new Scene(startVBox, 400, 400);
 		
 		//PvM Screen Stuff
-		PvP = resetBoard();
-		PvM = resetBoard();
+		PvP = updateBoard(true);
+		PvM = updateBoard(true);
 		start.setScene(origin);
 	
 	}
-	
-	public void start(Stage primaryStage) throws Exception{
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 		start = primaryStage;
-		
-		//Initial Stage Stuff
-		
 		homeScreen();
 		start.setTitle("TicTacToe");
 		start.show();
@@ -668,40 +422,5 @@ public class TestingGraphicsWithoutEditing extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-	}
-	
-	public class ButtonListener implements ActionListener{
-
-		@Override
-		public void actionPerformed(java.awt.event.ActionEvent e) {
-			if(e.getSource() == PvM0) {
-				move = 0;
-			}
-			if(e.getSource() == PvM1) {
-				move = 1;
-			}
-			if(e.getSource() == PvM2) {
-				move = 2;
-			}
-			if(e.getSource() == PvM3) {
-				move = 3;
-			}
-			if(e.getSource() == PvM4) {
-				move = 4;
-			}
-			if(e.getSource() == PvM5) {
-				move = 5;
-			}
-			if(e.getSource() == PvM6) {
-				move = 6;
-			}
-			if(e.getSource() == PvM7) {
-				move = 7;
-			}
-			if(e.getSource() == PvM8) {
-				move = 8;
-			}
-		}
-		
 	}
 }
