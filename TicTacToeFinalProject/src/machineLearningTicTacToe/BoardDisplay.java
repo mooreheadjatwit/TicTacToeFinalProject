@@ -11,21 +11,24 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class BoardDisplay extends Application{
-	
 static Scene game;
 static int index;
 private boolean TurnX = true;
 private static int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
-	public static int main(String[] args) {
+	public int main(String[] args) {
 		moveIndex = Game.getGameState();
-		launch(args);
+		try {
+			start(Main.window);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return index;
 		
 	}
 
-	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
 		BorderPane secondScene = new BorderPane();

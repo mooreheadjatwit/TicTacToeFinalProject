@@ -52,7 +52,7 @@ public class InitialDisplay extends Application {
 		Button PvM = new Button("pvm");
 		PvP.setOnAction(e -> {
 			pvp = true;
-			//InitialDisplay.main();
+			primaryStage.close();
 			
 		});
 		PvM.setOnAction(e -> {
