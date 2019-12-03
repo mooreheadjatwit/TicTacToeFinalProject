@@ -39,7 +39,7 @@ public class PlayerMove implements iPlayer {
 
 	public void play() {
 		this.moveIndex = Game.getGameState();
-		setMove(Graphics.boardDisplay(this.moveIndex));
+		setMove(BoardDisplay.main(null));
 		
 	}
 }
