@@ -1,6 +1,7 @@
 package machineLearningTicTacToe;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,17 +28,17 @@ public class InitialDisplay extends Application {
 		
 	}
 
-	public static boolean main(String[] args) {
+	public static boolean main(Stage args) {
 		// TODO Auto-generated method stub
-		launch(args);
+		start(args);
 		return pvp;
 	}
 
-	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		int [] bool = new int[2];
-		 
+        Platform.setImplicitExit(false);
+
 		 
 		GridPane startBox = new GridPane();
 		GridPane.setConstraints(startBox, 1, 1);
@@ -52,13 +53,13 @@ public class InitialDisplay extends Application {
 		Button PvM = new Button("pvm");
 		PvP.setOnAction(e -> {
 			pvp = true;
-			primaryStage.close();
+			Platform.exit();
 			
 		});
 		PvM.setOnAction(e -> {
 			
 			pvp = false;
-			primaryStage.close();
+			Platform.exit();
 			
 		});
 

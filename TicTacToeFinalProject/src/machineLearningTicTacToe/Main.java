@@ -1,11 +1,14 @@
 package machineLearningTicTacToe;
 
+import javafx.stage.Stage;
+
 public class Main {
 	public static void main(String[] args) {
 		boolean pvp = false;
 		boolean firstTurn;
 		int outcome;
-		pvp = InitialDisplay.main(args);
+		Stage stage = new Stage();
+		pvp = InitialDisplay.main(stage);
 		while(true){
 			
 		firstTurn = (Math.random() < .5);
