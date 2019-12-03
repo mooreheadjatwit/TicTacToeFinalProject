@@ -7,8 +7,7 @@ public class Main {
 		boolean pvp = false;
 		boolean firstTurn;
 		int outcome;
-		Stage stage = new Stage();
-		pvp = InitialDisplay.main(stage);
+		pvp = InitialDisplay.main(args);
 		while(true){
 			
 		firstTurn = (Math.random() < .5);

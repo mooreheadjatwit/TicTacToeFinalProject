@@ -28,9 +28,9 @@ public class InitialDisplay extends Application {
 		
 	}
 
-	public static boolean main(Stage args) {
+	public static boolean main(String[] args) {
 		// TODO Auto-generated method stub
-		start(args);
+		launch(args);
 		return pvp;
 	}
 

@@ -17,14 +17,9 @@ private boolean TurnX = true;
 private static int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
-	public int main(String[] args) {
+	public static int main(String[] args) {
 		moveIndex = Game.getGameState();
-		try {
-			start(Main.window);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		launch(args);
 		return index;
 		
 	}
