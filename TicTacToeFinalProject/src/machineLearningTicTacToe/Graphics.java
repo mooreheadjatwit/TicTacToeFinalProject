@@ -59,8 +59,8 @@ public class Graphics extends Application{
 		Text oText = new Text("O");
 		Text blankText = new Text(" ");
 
-		xText.setStyle("-fx-font: 32 arial;");
-		oText.setStyle("-fx-font: 32 arial;");
+		xText.setStyle("-fx-font: 100 arial;");
+		oText.setStyle("-fx-font: 100 arial;");
 		blankText.setStyle("-fx-font: 32 arial;");
 
 		
@@ -90,6 +90,7 @@ public class Graphics extends Application{
 			return winScreenPvP(2);
 		}
 		if(Game.checkTie()) {
+			numTiesPvP++;
 			return tieScreen(true);
 		}
 		
@@ -290,6 +291,7 @@ public class Graphics extends Application{
 			return winScreenPvM(yaBoi);
 		}
 		if(Game.checkTie()) {
+			numTiesPvM++;
 			return tieScreen(false);
 		}
 		
