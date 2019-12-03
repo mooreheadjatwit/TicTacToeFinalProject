@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-import machineLearningTicTacToe.Mutator;
-
 /**
  * Machine handles the interfacing with the bigBrain database, thinking, and learning.
  * @author moynihanm1
@@ -91,7 +89,6 @@ public class Machine {
 		int spin = (int)Math.round(sum * Math.random());
 		int working = 0;
 		int j = (int)Math.floor(Math.random()*9);
-		int choice = 0;
 		for (int i = j; i < sum * 100; i++) {
 			if(weights[i % 9] > 0) {
 				working += weights[i % 9];
