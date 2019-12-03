@@ -82,15 +82,12 @@ public class Graphics extends Application{
 		}
 		setMoveIndex(Game.getGameState());
 		if(Game.checkVictory(1)) {
-			playerOWins++;
 			return winScreenPvP(1);
 		}
 		if(Game.checkVictory(2)) {
-			playerXWins++;
 			return winScreenPvP(2);
 		}
 		if(Game.checkTie()) {
-			numTiesPvP++;
 			return tieScreen(true);
 		}
 		
@@ -283,15 +280,12 @@ public class Graphics extends Application{
 		}
 		setMoveIndex(Game.getGameState());
 		if(Game.checkVictory(1)) {
-			machineWins++;
 			return loseScreen(yaBoi);
 		}
 		if(Game.checkVictory(2)) {
-			playerWins++;
 			return winScreenPvM(yaBoi);
 		}
 		if(Game.checkTie()) {
-			numTiesPvM++;
 			return tieScreen(false);
 		}
 		
@@ -538,11 +532,13 @@ public class Graphics extends Application{
 		if(PvP) {
 			wins = new Text("Player X: " + String.valueOf(playerXWins));
 			loses = new Text("Player O: " + String.valueOf(playerOWins));
+			numTiesPvP++;
 			ties = new Text("Total Ties: " + String.valueOf(numTiesPvP));
 		}
 		else {
 			wins = new Text("Machine: " + String.valueOf(machineWins));
 			loses = new Text("Player: " + String.valueOf(playerWins));
+			numTiesPvM++;
 			ties = new Text("Total Ties: " + String.valueOf(numTiesPvM));
 		}
 		Text tieText = new Text("You have Tied");
@@ -575,6 +571,7 @@ public class Graphics extends Application{
 	}
 	
 	public static Scene winScreenPvM(MachineMove yaBoi) {
+		playerWins++;
 		yaBoi.learn(2);
 		Text winText = new Text("Congradulations Player, You have Won");
 		Text scoreText = new Text("Current Score");
@@ -603,9 +600,11 @@ public class Graphics extends Application{
 		Text winText;
 		if(moveNumber == 1) {
 			winText = new Text("Congradulations Player X, You have Won");
+			playerXWins++;
 		}
 		else {
 			winText = new Text("Congradulations Player O, You have Won");
+			playerOWins++;
 		}
 		Text scoreText = new Text("Current Score");
 		Text playerXWin = new Text("Player X: " + String.valueOf(playerXWins));
@@ -630,6 +629,7 @@ public class Graphics extends Application{
 	}
 	
 	public static Scene loseScreen(MachineMove yaBoi) {
+		machineWins++;
 		yaBoi.learn(1);
 		Text loseText = new Text("Unfortunately You have Lost");
 		Text scoreText = new Text("Current Score");
