@@ -1,5 +1,13 @@
 package machineLearningTicTacToe;
 
+/**
+ * This is the PlayerMove class, it is used to create a player and
+ * have the player be able to make moves in the game
+ * 
+ * @author Joshua Moorehead
+ *
+ */
+
 public class PlayerMove implements iPlayer {
 	private int[] moveIndex = {0,0,0,0,0,0,0,0,0};
 	private int moveNumber;
@@ -39,7 +47,5 @@ public class PlayerMove implements iPlayer {
 
 	public void play() {
 		this.moveIndex = Game.getGameState();
-		//setMove(BoardDisplay.main(null));
-		
 	}
 }

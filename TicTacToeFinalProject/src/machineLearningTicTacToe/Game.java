@@ -4,6 +4,7 @@ package machineLearningTicTacToe;
  * This is the game class it holds all the information on the tic tac toe gameboard
  * When a new game is created the gameState array is set to all 0s and the number of moves is set to zero
  * It has a getGameState and setGameState respectively. Also it has the ability to reset the gameState
+ * 
  * @author Joshua Moorehead
  *
  */
@@ -16,7 +17,7 @@ public class Game {
 		resetGameState();
 	}
 	
-	public static void printGameState() {//This won't be used as it is just to test console playing
+	public static void printGameState() {//This is only used to test console playing
 		for(int i = 1; i < 10; i++) {
 			System.out.printf("%s|", (gameState[i-1] == 0)? " " : (gameState[i-1] == 1)? "o" : "x");
 			if(i%3 ==0) {

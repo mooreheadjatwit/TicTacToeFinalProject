@@ -2,7 +2,8 @@ package machineLearningTicTacToe;
 
 /**
  * Mutator is class for all the methods related to mutation (flips and rotations) of the gameboard.
- * @author moynihanm1
+ * 
+ * @author Max Moynihan
  *
  */
 public class Mutator {
