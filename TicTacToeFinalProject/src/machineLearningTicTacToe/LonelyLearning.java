@@ -9,7 +9,7 @@ public class LonelyLearning {
 		int tie = 0;
 		int one = 0;
 		int two = 0;
-		int numGames = 100;
+		int numGames = 25;
 		
 		for(int i = 0; i < numGames; i++) {
 			int outcome = mvmGame(true);

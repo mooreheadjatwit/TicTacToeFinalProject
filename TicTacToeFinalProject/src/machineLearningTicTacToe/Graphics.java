@@ -123,7 +123,7 @@ public class Graphics extends Application {
 //	                moveIndex[0] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -157,7 +157,7 @@ public class Graphics extends Application {
 //	                moveIndex[1] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -191,7 +191,7 @@ public class Graphics extends Application {
 //	                moveIndex[2] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -225,7 +225,7 @@ public class Graphics extends Application {
 //	                moveIndex[3] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -259,7 +259,7 @@ public class Graphics extends Application {
 //	                moveIndex[4] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -294,7 +294,7 @@ public class Graphics extends Application {
 //	                moveIndex[5] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -329,7 +329,7 @@ public class Graphics extends Application {
 //	                moveIndex[6] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -363,7 +363,7 @@ public class Graphics extends Application {
 //	                moveIndex[7] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -396,7 +396,7 @@ public class Graphics extends Application {
 //	                moveIndex[8] = Main.getTurn() ? 1 : 2;
 //	                Main.setTurn();
 //	                Game.setGameState(moveIndex);
-//	                Game.printGameState();
+//	                
 //	            }
 //	            start.setScene(updateBoardPvP(false));
 //	        });
@@ -435,7 +435,7 @@ public class Graphics extends Application {
 					moveIndex[0] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -462,7 +462,7 @@ public class Graphics extends Application {
 					moveIndex[1] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -489,7 +489,7 @@ public class Graphics extends Application {
 					moveIndex[2] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -516,7 +516,7 @@ public class Graphics extends Application {
 					moveIndex[3] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -543,7 +543,7 @@ public class Graphics extends Application {
 					moveIndex[4] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -570,7 +570,7 @@ public class Graphics extends Application {
 					moveIndex[5] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -597,7 +597,7 @@ public class Graphics extends Application {
 					moveIndex[6] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -624,7 +624,7 @@ public class Graphics extends Application {
 					moveIndex[7] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
@@ -651,7 +651,7 @@ public class Graphics extends Application {
 					moveIndex[8] = Main.getTurn() ? 1 : 2;
 					Main.setTurn();
 					Game.setGameState(moveIndex);
-					Game.printGameState();
+					
 				}
 				start.setScene(updateBoardPvP(false));
 
