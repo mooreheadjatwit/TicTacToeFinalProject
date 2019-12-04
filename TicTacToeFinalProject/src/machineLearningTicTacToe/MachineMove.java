@@ -1,6 +1,11 @@
 package machineLearningTicTacToe;
 
-
+/**
+ *  MachineMove is the counter to PlayerMove and handles calling the things needed
+ *  	for the Machine to function
+ * @author moynihanm1
+ *
+ */
 public class MachineMove implements iPlayer {
 	//int to represent which player the machine is playing for.
 	private int moveNumber = 0;
@@ -46,6 +51,9 @@ public class MachineMove implements iPlayer {
 		this.setMove(move);
 	}
 	
+	/**
+	 * The same as play() but it plays randomly and doesnt try to learn from it.
+	 */
 	public void randomPlay() {
 		this.moveIndex = Game.getGameState();
 		boolean chosen = false;
@@ -65,7 +73,9 @@ public class MachineMove implements iPlayer {
 	public void setNumWins() {
 		this.numWins++;
 	}
+	
 	public void learn(int o) {
+		//just passes from this object to the local Machine object 'mech'
 		this.mech.learn(o);
 	}
 
