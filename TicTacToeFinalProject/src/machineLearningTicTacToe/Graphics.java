@@ -24,6 +24,7 @@ public class Graphics extends Application {
 	static int machineWins = 0;
 	static int numTiesPvP = 0;
 	static int numTiesPvM = 0;
+	private static boolean turn = false;
 	private static int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	public static int getMove() {
@@ -32,6 +33,14 @@ public class Graphics extends Application {
 
 	public static int getChoice() {
 		return pvp;
+	}
+	
+	public static void setTurn() {
+		turn = !turn;
+	}
+	
+	public static boolean getTurn() {
+		return turn;
 	}
 
 	public static void setMoveIndex(int[] index) {
@@ -110,8 +119,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(0)) {
-					moveIndex[0] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[0] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -137,8 +146,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(1)) {
-					moveIndex[1] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[1] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -164,8 +173,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(2)) {
-					moveIndex[2] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[2] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -191,8 +200,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(3)) {
-					moveIndex[3] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[3] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -218,8 +227,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(4)) {
-					moveIndex[4] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[4] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -245,8 +254,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(5)) {
-					moveIndex[5] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[5] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -272,8 +281,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(6)) {
-					moveIndex[6] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[6] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -299,8 +308,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(7)) {
-					moveIndex[7] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[7] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -326,8 +335,8 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				if (isValid(8)) {
-					moveIndex[8] = Main.getTurn() ? 1 : 2;
-					Main.setTurn();
+					moveIndex[8] = getTurn() ? 1 : 2;
+					setTurn();
 					Game.setGameState(moveIndex);
 					
 				}
@@ -390,7 +399,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[0] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -417,7 +426,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[1] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -444,7 +453,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[2] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -471,7 +480,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[3] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -498,7 +507,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[4] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -525,7 +534,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[5] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -552,7 +561,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[6] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -579,7 +588,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[7] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
@@ -606,7 +615,7 @@ public class Graphics extends Application {
 			if (event.getButton() == MouseButton.PRIMARY) {
 
 				moveIndex[8] = 2;
-				Main.setTurn();
+				setTurn();
 				Game.setGameState(moveIndex);
 				if (Game.checkVictory(2) || Game.checkTie()) {
 					start.setScene(updateBoardPvM(false, yaBoi));
