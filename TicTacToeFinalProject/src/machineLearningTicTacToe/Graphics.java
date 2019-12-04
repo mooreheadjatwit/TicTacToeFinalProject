@@ -982,9 +982,9 @@ public class Graphics extends Application{
 		}
 		else {
 			wins = new Text("Machine: " + String.valueOf(machineWins));
-			loses = new Text("Player: " + String.valueOf(playerWins));
+			loses = new Text("Player: " + String.valueOf(playerWins / 2));
 			numTiesPvM++;
-			ties = new Text("Total Ties: " + String.valueOf(numTiesPvM));
+			ties = new Text("Total Ties: " + String.valueOf(numTiesPvM / 2));
 		}
 		Text tieText = new Text("You have Tied");
 		Text scoreText = new Text("Current Score");
@@ -1021,8 +1021,8 @@ public class Graphics extends Application{
 		Text winText = new Text("Congradulations Player, You have Won");
 		Text scoreText = new Text("Current Score");
 		Text playerXWin = new Text("Machine: " + String.valueOf(machineWins));
-		Text playerOWin = new Text("Player: " + String.valueOf(playerWins));
-		Text ties = new Text("Total Ties: " + String.valueOf(numTiesPvM));
+		Text playerOWin = new Text("Player: " + String.valueOf(playerWins / 2));
+		Text ties = new Text("Total Ties: " + String.valueOf(numTiesPvM / 2));
 		Text playAgain = new Text("Would you like to play again or change GameMode?");
 		Button yesAgain = new Button("Yes");
 		yesAgain.setOnAction(e->{
@@ -1078,9 +1078,9 @@ public class Graphics extends Application{
 		yaBoi.learn(1);
 		Text loseText = new Text("Unfortunately You have Lost");
 		Text scoreText = new Text("Current Score");
-		Text playerWin = new Text("Player: " + String.valueOf(playerWins));
+		Text playerWin = new Text("Player: " + String.valueOf(playerWins / 2));
 		Text machineWin = new Text("Machine: " + String.valueOf(machineWins));
-		Text ties = new Text("Total Ties: " + String.valueOf(numTiesPvM));
+		Text ties = new Text("Total Ties: " + String.valueOf(numTiesPvM / 2));
 		Text playAgain = new Text("Would you like to play again or change GameMode?");
 		Button yesAgain = new Button("Yes");
 		yesAgain.setOnAction(e-> {
