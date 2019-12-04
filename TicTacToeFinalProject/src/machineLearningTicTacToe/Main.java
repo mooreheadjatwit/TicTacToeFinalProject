@@ -14,7 +14,7 @@ public class Main {
 		boolean pvp = false;
 		boolean firstTurn;
 		int outcome;
-		pvp = InitialDisplay.main(args);
+		//pvp = InitialDisplay.main(args);
 		while(true){
 			
 		firstTurn = (Math.random() < .5);
