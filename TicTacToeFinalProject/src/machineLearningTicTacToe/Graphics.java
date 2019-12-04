@@ -1,8 +1,11 @@
 package machineLearningTicTacToe;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -91,97 +94,321 @@ public class Graphics extends Application{
 			return tieScreen(true);
 		}
 		
-		Button PvM0 = new Button("Location 0");
-		PvM0.setOnAction(e->{
-			if(isValid(0)) {
-				moveIndex[0] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM1 = new Button("Location 1");
-		PvM1.setOnAction(e->{
-			if(isValid(1)) {
-				moveIndex[1] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM2 = new Button("Location 2");
-		PvM2.setOnAction(e->{
-			if(isValid(2)) {
-				moveIndex[2] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM3 = new Button("Location 3");
-		PvM3.setOnAction(e->{
-			if(isValid(3)) {
-				moveIndex[3] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM4 = new Button("Location 4");
-		PvM4.setOnAction(e->{
-			if(isValid(4)) {
-				moveIndex[4] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM5 = new Button("Location 5");
-		PvM5.setOnAction(e->{
-			if(isValid(5)) {
-				moveIndex[5] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM6 = new Button("Location 6");
-		PvM6.setOnAction(e->{
-			if(isValid(6)) {
-				moveIndex[6] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM7 = new Button("Location 7");
-		PvM7.setOnAction(e->{
-			if(isValid(7)) {
-				moveIndex[7] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Button PvM8 = new Button("Location 8");
-		PvM8.setOnAction(e->{
-			if(isValid(8)) {
-				moveIndex[8] = Main.getTurn() ? 2 : 1;
-				Main.setTurn();
-				Game.setGameState(moveIndex);
-				
-			}
-			start.setScene(updateBoardPvP(false));
-		});
-		Text pvmText = new Text("Player vs Machine");
+		
+		
+		 Button PvM0 = new Button("Location 0");
+	        
+	        PvM0.setStyle("-fx-background-color: GOLDENROD");
+	        ////////
+	        //Drop shadow code pulled from Oracle Website
+	        
+	        DropShadow shadow = new DropShadow();
+	        //Adding the shadow when the mouse cursor is on
+	        PvM0.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	            new EventHandler<MouseEvent>() {
+	                @Override public void handle(MouseEvent e) {
+	                    PvM0.setEffect(shadow);
+	                }
+	        });
+	        //Removing the shadow when the mouse cursor is off
+	        PvM0.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	            new EventHandler<MouseEvent>() {
+	                @Override public void handle(MouseEvent e) {
+	                    PvM0.setEffect(null);
+	                }
+	        });
+	          
+	        
+	        /////////
+	        
+	        PvM0.setOnAction(e->{
+	            if(isValid(0)) {
+	                moveIndex[0] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM1 = new Button("Location 1");
+	    
+	         PvM1.setStyle("-fx-background-color: 	GOLD");
+	         ////////
+	         
+	         
+	        DropShadow shadow0 = new DropShadow();
+	         //Adding the shadow when the mouse cursor is on
+	         PvM1.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM1.setEffect(shadow0);
+	                 }
+	         });
+	         //Removing the shadow when the mouse cursor is off
+	         PvM1.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM1.setEffect(null);
+	                 }
+	         });
+	           
+	         
+	         /////////
+	         
+	        PvM1.setOnAction(e->{
+	            if(isValid(1)) {
+	                moveIndex[1] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM2 = new Button("Location 2");
+	         PvM2.setStyle("-fx-background-color: GOLDENROD");
+	         ////////
+	         
+	         
+	         DropShadow shadow1 = new DropShadow();
+	         //Adding the shadow when the mouse cursor is on
+	         PvM2.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM2.setEffect(shadow1);
+	                 }
+	         });
+	         //Removing the shadow when the mouse cursor is off
+	         PvM2.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM2.setEffect(null);
+	                 }
+	         });
+	           
+	         
+	         /////////
+	         
+	         
+	        PvM2.setOnAction(e->{
+	            if(isValid(2)) {
+	                moveIndex[2] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM3 = new Button("Location 3");
+	         PvM3.setStyle("-fx-background-color: 	GOLD");
+	         
+	         ////////
+	         
+	         
+	         DropShadow shadow2 = new DropShadow();
+	         //Adding the shadow when the mouse cursor is on
+	         PvM3.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM3.setEffect(shadow2);
+	                 }
+	         });
+	         //Removing the shadow when the mouse cursor is off
+	         PvM3.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM3.setEffect(null);
+	                 }
+	         });
+	           
+	         
+	         /////////
+	         
+	        PvM3.setOnAction(e->{
+	            if(isValid(3)) {
+	                moveIndex[3] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM4 = new Button("Location 4");
+	         PvM4.setStyle("-fx-background-color: GOLDENROD");
+	         
+	         ////////
+	         
+	         
+	         DropShadow shadow3 = new DropShadow();
+	         //Adding the shadow when the mouse cursor is on
+	         PvM4.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM4.setEffect(shadow3);
+	                 }
+	         });
+	         //Removing the shadow when the mouse cursor is off
+	         PvM4.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	             new EventHandler<MouseEvent>() {
+	                 @Override public void handle(MouseEvent e) {
+	                     PvM4.setEffect(null);
+	                 }
+	         });
+	           
+	         
+	         /////////
+	         
+	        PvM4.setOnAction(e->{
+	            if(isValid(4)) {
+	                moveIndex[4] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM5 = new Button("Location 5");
+	        PvM5.setStyle("-fx-background-color: 	GOLD");
+	        
+	        ////////
+	        
+	        
+	        DropShadow shadow4 = new DropShadow();
+	        //Adding the shadow when the mouse cursor is on
+	        PvM5.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	            new EventHandler<MouseEvent>() {
+	                @Override public void handle(MouseEvent e) {
+	                    PvM5.setEffect(shadow4);
+	                }
+	        });
+	        //Removing the shadow when the mouse cursor is off
+	        PvM5.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	            new EventHandler<MouseEvent>() {
+	                @Override public void handle(MouseEvent e) {
+	                    PvM5.setEffect(null);
+	                }
+	        });
+	          
+	        
+	        /////////
+	        
+	        
+	        PvM5.setOnAction(e->{
+	            if(isValid(5)) {
+	                moveIndex[5] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM6 = new Button("Location 6");
+	                PvM6.setStyle("-fx-background-color: GOLDENROD");
+	                
+	            ////////
+	                
+	                
+	                DropShadow shadow5 = new DropShadow();
+	                //Adding the shadow when the mouse cursor is on
+	                PvM6.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	                    new EventHandler<MouseEvent>() {
+	                        @Override public void handle(MouseEvent e) {
+	                            PvM6.setEffect(shadow5);
+	                        }
+	                });
+	                //Removing the shadow when the mouse cursor is off
+	                PvM6.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	                    new EventHandler<MouseEvent>() {
+	                        @Override public void handle(MouseEvent e) {
+	                            PvM6.setEffect(null);
+	                        }
+	                });
+	                  
+	                
+	                /////////
+	                
+
+	        PvM6.setOnAction(e->{
+	            if(isValid(6)) {
+	                moveIndex[6] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM7 = new Button("Location 7");
+	                PvM7.setStyle("-fx-background-color: 	GOLD");
+	                
+	                ////////
+	                
+	                
+	                DropShadow shadow6 = new DropShadow();
+	                //Adding the shadow when the mouse cursor is on
+	                PvM7.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	                    new EventHandler<MouseEvent>() {
+	                        @Override public void handle(MouseEvent e) {
+	                            PvM7.setEffect(shadow6);
+	                        }
+	                });
+	                //Removing the shadow when the mouse cursor is off
+	                PvM7.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	                    new EventHandler<MouseEvent>() {
+	                        @Override public void handle(MouseEvent e) {
+	                            PvM7.setEffect(null);
+	                        }
+	                });
+	                  
+	                
+	                /////////
+
+	        PvM7.setOnAction(e->{
+	            if(isValid(7)) {
+	                moveIndex[7] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+	        Button PvM8 = new Button("Location 8");
+	        PvM8.setStyle("-fx-background-color: 	GOLDENROD");         
+	        ////////////
+	        
+	        DropShadow shadow7 = new DropShadow();
+	      //Adding the shadow when the mouse cursor is on
+	      PvM8.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+	          new EventHandler<MouseEvent>() {
+	              @Override public void handle(MouseEvent e) {
+	                  PvM8.setEffect(shadow7);
+	              }
+	      });
+	      //Removing the shadow when the mouse cursor is off
+	      PvM8.addEventHandler(MouseEvent.MOUSE_EXITED, 
+	          new EventHandler<MouseEvent>() {
+	              @Override public void handle(MouseEvent e) {
+	                  PvM8.setEffect(null);
+	              }
+	      });
+	        
+	        ///////////
+	        
+	        
+	        PvM8.setOnAction(e->{
+	        	
+	            if(isValid(8)) {
+	                moveIndex[8] = Main.getTurn() ? 1 : 2;
+	                Main.setTurn();
+	                Game.setGameState(moveIndex);
+	                Game.printGameState();
+	            }
+	            start.setScene(updateBoardPvP(false));
+	        });
+		
+		
+		
+
+	        
+		Text pvmText = new Text("Player vs Player");
 		HBox pvm1 = new HBox(10);
 		pvm1.getChildren().addAll(PvM0, PvM1, PvM2);
 		HBox pvm2 = new HBox(10);
@@ -290,7 +517,32 @@ public class Graphics extends Application{
 		}
 		
 		Button PvM0 = new Button("Location 0");
+		 PvM0.setStyle("-fx-background-color: GOLDENROD");
+		  
+        ////////
+        
+        
+        DropShadow shadow = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM0.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM0.setEffect(shadow);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM0.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM0.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM0.setOnAction(e->{
+			
 			if(isValid(0)) {
 				moveIndex[0] = 2;
 				Main.setTurn();
@@ -306,6 +558,31 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM1 = new Button("Location 1");
+		  PvM1.setStyle("-fx-background-color: 	GOLD");
+		  
+        ////////
+        
+        
+        DropShadow shadow1 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM1.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM1.setEffect(shadow1);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM1.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM1.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
+		
 		PvM1.setOnAction(e->{
 			if(isValid(1)) {
 				moveIndex[1] = 2;
@@ -322,6 +599,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM2 = new Button("Location 2");
+		 PvM2.setStyle("-fx-background-color: GOLDENROD");
+		  
+        ////////
+        
+        
+        DropShadow shadow3 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM2.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM2.setEffect(shadow3);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM2.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM2.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM2.setOnAction(e->{
 			if(isValid(2)) {
 				moveIndex[2] = 2;
@@ -338,6 +639,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM3 = new Button("Location 3");
+		  PvM3.setStyle("-fx-background-color: 	GOLD");
+		  
+        ////////
+        
+        
+        DropShadow shadow4 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM3.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM3.setEffect(shadow4);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM3.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM3.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM3.setOnAction(e->{
 			if(isValid(3)) {
 				moveIndex[3] = 2;
@@ -354,6 +679,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM4 = new Button("Location 4");
+		 PvM4.setStyle("-fx-background-color: GOLDENROD");
+		  
+        ////////
+        
+        
+        DropShadow shadow5 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM4.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM4.setEffect(shadow5);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM4.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM4.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM4.setOnAction(e->{
 			if(isValid(4)) {
 				moveIndex[4] = 2;
@@ -370,6 +719,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM5 = new Button("Location 5");
+		  PvM5.setStyle("-fx-background-color: 	GOLD");
+		  
+        ////////
+        
+        
+        DropShadow shadow6 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM5.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM5.setEffect(shadow6);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM5.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM5.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM5.setOnAction(e->{
 			if(isValid(5)) {
 				moveIndex[5] = 2;
@@ -386,6 +759,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM6 = new Button("Location 6");
+		 PvM6.setStyle("-fx-background-color: GOLDENROD");
+		  
+        ////////
+        
+        
+        DropShadow shadow7 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM6.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM6.setEffect(shadow7);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM6.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM6.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM6.setOnAction(e->{
 			if(isValid(6)) {
 				moveIndex[6] = 2;
@@ -402,6 +799,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM7 = new Button("Location 7");
+		
+		  PvM7.setStyle("-fx-background-color: 	GOLD");
+        ////////
+        
+        
+        DropShadow shadow8 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM7.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM7.setEffect(shadow8);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM7.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM7.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM7.setOnAction(e->{
 			if(isValid(7)) {
 				moveIndex[7] = 2;
@@ -418,6 +839,30 @@ public class Graphics extends Application{
 			start.setScene(updateBoardPvM(false, yaBoi));
 		});
 		Button PvM8 = new Button("Location 8");
+		
+		 PvM8.setStyle("-fx-background-color: GOLDENROD");
+        ////////
+        
+        
+        DropShadow shadow9 = new DropShadow();
+        //Adding the shadow when the mouse cursor is on
+        PvM8.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM8.setEffect(shadow9);
+                }
+        });
+        //Removing the shadow when the mouse cursor is off
+        PvM8.addEventHandler(MouseEvent.MOUSE_EXITED, 
+            new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent e) {
+                    PvM8.setEffect(null);
+                }
+        });
+          
+        
+        /////////
+		
 		PvM8.setOnAction(e->{
 			if(isValid(8)) {
 				moveIndex[8] = 2;
@@ -599,12 +1044,12 @@ public class Graphics extends Application{
 	public static Scene winScreenPvP(int moveNumber) {
 		Text winText;
 		if(moveNumber == 1) {
-			winText = new Text("Congradulations Player X, You have Won");
-			playerXWins++;
-		}
-		else {
 			winText = new Text("Congradulations Player O, You have Won");
 			playerOWins++;
+		}
+		else {
+			winText = new Text("Congradulations Player X, You have Won");
+			playerXWins++;
 		}
 		Text scoreText = new Text("Current Score");
 		Text playerXWin = new Text("Player X: " + String.valueOf(playerXWins));
