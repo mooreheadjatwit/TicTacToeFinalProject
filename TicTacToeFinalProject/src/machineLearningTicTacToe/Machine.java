@@ -11,7 +11,8 @@ import java.util.stream.Stream;
 
 /**
  * Machine handles the interfacing with the bigBrain database, thinking, and learning.
- * @author moynihanm1
+ * 
+ * @author Max Moynihan
  *
  */
 public class Machine {

@@ -13,6 +13,18 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * This is the graphics class it makes the game and updates the gamebard to constantly reflect the gamestate
+ * It has a gui to chose between pvp and pvm, which then updates the board to keep the tic tac toe board good
+ * It calls the game class to keep the board updated and check for wins and losses
+ * If there is a win/loss/tie it displays the respective screen with the number of wins losses and ties
+ * The win lose and tie screens have the option to play again, not play again which closes the game, or change the gamemode
+ * Changing the gamemode will go back to the homescreen so you can chose for PvP or PvM again
+ * 
+ * @author Joshua Moorehead and Matt Benedict
+ *
+ */
+
 public class Graphics extends Application {
 	static Stage start;
 	static Scene PvM, PvP;
