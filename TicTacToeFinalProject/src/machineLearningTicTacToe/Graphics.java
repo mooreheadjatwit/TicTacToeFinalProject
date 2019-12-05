@@ -694,25 +694,62 @@ public class Graphics extends Application {
 
 	public static Scene tieScreen(boolean PvP) {
 		Text wins;
-		
 		Text loses;
 		Text ties;
 		if (PvP) {
 			wins = new Text("Player X: " + String.valueOf(playerXWins));
+			wins.setFill(Color.DARKBLUE);
+			wins.setStyle("-fx-font: 16 arial;");
+			
 			loses = new Text("Player O: " + String.valueOf(playerOWins));
+			loses.setFill(Color.DARKBLUE);
+			loses.setStyle("-fx-font: 16 arial;");
 			numTiesPvP++;
 			ties = new Text("Total Ties: " + String.valueOf(numTiesPvP));
+			ties.setFill(Color.DARKBLUE);
+			ties.setStyle("-fx-font: 16 arial;");
 		} else {
 			wins = new Text("Machine: " + String.valueOf(machineWins));
+			wins.setFill(Color.DARKBLUE);
+			wins.setStyle("-fx-font: 13 arial;");
+			
 			loses = new Text("Player: " + String.valueOf(playerWins / 2));
+			loses.setFill(Color.DARKBLUE);
+			loses.setStyle("-fx-font: 16 arial;");
 			numTiesPvM++;
 			ties = new Text("Total Ties: " + String.valueOf(numTiesPvM / 2));
+			ties.setFill(Color.DARKBLUE);
+			ties.setStyle("-fx-font: 16 arial;");
 		}
 		Text tieText = new Text("You have Tied");
+		tieText.setFill(Color.DARKBLUE);
+		tieText.setStyle("-fx-font: 26 arial;");
+		
 		Text scoreText = new Text("Current Score");
+		scoreText.setFill(Color.DARKBLUE);
+		scoreText.setStyle("-fx-font: 16 arial;");
+		
 
-		Text playAgain = new Text("Would you like to play again or change GameMode?");
-		Button yesAgain = new Button("Yes");
+		//Text playAgain = new Text("Would you like to play again or change GameMode?");
+		Button yesAgain = new Button("Replay");
+		yesAgain.setStyle("-fx-background-color: GAINSBORO");
+		
+		DropShadow shadow = new DropShadow();
+		//Adding the shadow when the mouse cursor is on
+		yesAgain.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	yesAgain.setEffect(shadow);
+		        }
+		});
+		//Removing the shadow when the mouse cursor is off
+		yesAgain.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	yesAgain.setEffect(null);
+		        }
+		});
+		
 		yesAgain.setOnAction(e -> {
 			if (PvP) {
 				start.setScene(updateBoardPvP(true));
@@ -721,23 +758,104 @@ public class Graphics extends Application {
 				start.setScene(updateBoardPvM(true, yaBoi));
 			}
 		});
-		Button noAgain = new Button("No");
+		Button noAgain = new Button("Exit");
+		
+		noAgain.setStyle("-fx-background-color: GAINSBORO");
+		
+		DropShadow shadow2 = new DropShadow();
+		//Adding the shadow when the mouse cursor is on
+		noAgain.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	noAgain.setEffect(shadow2);
+		        }
+		});
+		//Removing the shadow when the mouse cursor is off
+		noAgain.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	noAgain.setEffect(null);
+		        }
+		});
+		
+		
+		
 		noAgain.setOnAction(e -> {
 			start.close();
 			System.exit(1);
 		});
 		Button choiceHome = new Button("Change GameMode");
+		choiceHome.setStyle("-fx-background-color: GAINSBORO");
+		
+		DropShadow shadow3 = new DropShadow();
+		//Adding the shadow when the mouse cursor is on
+		choiceHome.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	choiceHome.setEffect(shadow3);
+		        }
+		});
+		//Removing the shadow when the mouse cursor is off
+		choiceHome.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	choiceHome.setEffect(null);
+		        }
+		});
+		
+		
 		choiceHome.setOnAction(e -> homeScreen());
 		
-//		BorderPane tiePane = new BorderPane();
-//		tiePane.setTop(tieText);
-//		tiePane.setAlignment(tieText, Pos.TOP_CENTER);
+		BorderPane tiePane = new BorderPane();
+		tiePane.setPadding(new Insets(10, 20, 10, 20));
+		tiePane.setTop(tieText);
+		tiePane.setAlignment(tieText, Pos.TOP_CENTER);
 		
-		HBox choiceHBox = new HBox(20);
-		choiceHBox.getChildren().addAll(yesAgain, noAgain);
-		VBox loseVBox = new VBox(10);
-		loseVBox.getChildren().addAll(tieText, scoreText, wins, loses, ties, playAgain, choiceHBox, choiceHome);
-		Scene loseScreen = new Scene(loseVBox, 800, 800);
+		BorderPane bottomPane = new BorderPane();
+		tiePane.setBottom(bottomPane);
+		
+		bottomPane.setLeft(yesAgain);
+		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		
+		bottomPane.setRight(noAgain);
+		bottomPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
+		
+		bottomPane.setBottom(choiceHome);
+		bottomPane.setAlignment(choiceHome, Pos.BASELINE_CENTER);
+		
+		
+		
+		//right side borderpane
+		BorderPane rightSide = new BorderPane();
+		rightSide.setPadding(new Insets(10, 20, 10, 20));
+		tiePane.setCenter(rightSide);
+		
+		rightSide.setTop(scoreText);
+		rightSide.setAlignment(scoreText, Pos.BOTTOM_CENTER);
+		
+		rightSide.setRight(wins);
+		rightSide.setAlignment(wins, Pos.CENTER);
+		
+		rightSide.setCenter(loses);
+		rightSide.setAlignment(loses, Pos.CENTER);
+		
+		rightSide.setLeft(ties);
+		rightSide.setAlignment(ties, Pos.CENTER);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		HBox choiceHBox = new HBox(20);
+//		choiceHBox.getChildren().addAll(yesAgain, noAgain);
+//		VBox loseVBox = new VBox(10);
+//		loseVBox.getChildren().addAll(tieText, scoreText, wins, loses, ties, playAgain, choiceHBox, choiceHome);
+		Scene loseScreen = new Scene(tiePane, 400, 400);
 		return loseScreen;
 	}
 	
