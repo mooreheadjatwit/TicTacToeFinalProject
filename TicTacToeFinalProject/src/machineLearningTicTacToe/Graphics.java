@@ -1,9 +1,12 @@
 package machineLearningTicTacToe;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -74,6 +77,8 @@ public class Graphics extends Application {
 		return false;
 	}
 
+	
+////////////////////////////////////////////////xOOrBlank below/////////////////////////
 	public static Text xOOrBlank(int n) {
 		int state = n;
 		Text xText = new Text("X");
@@ -95,6 +100,13 @@ public class Graphics extends Application {
 		return blankText;
 
 	}
+	
+////////////////////////////////////////////////xOOrBlank Above/////////////////////////
+	
+	
+	
+///////////////////////////////////////////////PvP board Below///////////////////////////
+	
 
 	public static Scene updateBoardPvP(boolean newGame) {
 		if (newGame) {
@@ -375,7 +387,13 @@ public class Graphics extends Application {
 		return PvM;
 	}
 
-	///////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////PvP board Above///////////////////////////////
+	
+	
+	
+	
+	////////////////////////////////////////PvM board Below/////////////////////
+	
 	public static Scene updateBoardPvM(boolean newGame, MachineMove yaBoi) {
 		if (newGame) {
 			Game.resetGameState();
@@ -655,6 +673,12 @@ public class Graphics extends Application {
 		PvM = new Scene(pvmDisplay1, 1000, 800);
 		return PvM;
 	}
+	
+	
+///////////////////////////////////////////////////PvM Board Above//////////////////////////
+	
+	
+///////////////////////////////////////////////////Tie Screen Below//////////////////////////
 
 	public static Scene tieScreen(boolean PvP) {
 		Text wins;
@@ -698,6 +722,10 @@ public class Graphics extends Application {
 		Scene loseScreen = new Scene(loseVBox, 800, 800);
 		return loseScreen;
 	}
+	
+	/////////////////////////////////////////////////////////////Tie Screen Above/////////////////////////
+	
+	///////////////////////////////////////////////////////////Win Screen PvM Below////////////////////////////
 
 	public static Scene winScreenPvM(MachineMove yaBoi) {
 		playerWins++;
@@ -725,6 +753,11 @@ public class Graphics extends Application {
 		Scene winScreen = new Scene(winVBox, 800, 800);
 		return winScreen;
 	}
+	
+	///////////////////////////////////////////////////////Win Screen PvM above///////////////////////////////
+	
+	
+	//////////////////////////////////////////////////////Win Screen PvP Below///////////////////////////////
 
 	public static Scene winScreenPvP(int moveNumber) {
 		Text winText;
@@ -758,6 +791,11 @@ public class Graphics extends Application {
 		return winScreen;
 	}
 
+	////////////////////////////////////////////////////////Win Screen PvP Above///////////////////////
+	
+	
+	///////////////////////////////////////////////////////Loss Screen Below/////////////////////////
+	
 	public static Scene loseScreen(MachineMove yaBoi) {
 		machineWins++;
 		yaBoi.learn(1);
@@ -785,9 +823,23 @@ public class Graphics extends Application {
 		return loseScreen;
 	}
 
+	//////////////////////////////////////////Loss Screen Above//////////////////
+	
+	
+	/////////////////////////////////////////Initial Display below////////////
+	
+	
 	public static void homeScreen() {
+		
+		//Greeting Text
 		Text startText1 = new Text("Welcome to Tic Tac Toe");
+		startText1.setStyle("-fx-font: 30 arial;");
+		
+		//Guidance Text
 		Text startText2 = new Text("Please Chose Player vs Player or Player vs Machine");
+		startText2.setStyle("-fx-font: 16 arial;");
+		
+		
 		Button playerVsPlayer = new Button("Player vs Player");
 		playerVsPlayer.setOnAction(e -> {
 			start.setScene(updateBoardPvP(true));
@@ -799,14 +851,35 @@ public class Graphics extends Application {
 			start.setScene(updateBoardPvM(true, yaBoi));
 			Game.resetGameState();
 		});
-		HBox startHBox = new HBox(20);
-		startHBox.getChildren().addAll(playerVsPlayer, playerVsMachine);
-		VBox startVBox = new VBox(10);
-		startVBox.getChildren().addAll(startText1, startText2, startHBox);
-		Scene origin = new Scene(startVBox, 400, 400);
+		
+		BorderPane firstScreen = new BorderPane();
+		
+		firstScreen.setTop(startText1);
+		firstScreen.setAlignment(startText1, Pos.TOP_CENTER);
+		
+		firstScreen.setCenter(startText2);
+		firstScreen.setAlignment(startText2, Pos.CENTER);
+		
+		BorderPane actionPane = new BorderPane();
+		firstScreen.setBottom(actionPane);
+		actionPane.setPadding(new Insets(10, 20, 10, 20));
+		
+		actionPane.setLeft(playerVsPlayer);
+		actionPane.setAlignment(playerVsPlayer, Pos.BASELINE_RIGHT);
+		
+		actionPane.setRight(playerVsMachine);
+		actionPane.setAlignment(playerVsMachine, Pos.BASELINE_LEFT);
+		
+//		HBox startHBox = new HBox(20);
+//		startHBox.getChildren().addAll(playerVsPlayer, playerVsMachine);
+//		VBox startVBox = new VBox(10);
+//		startVBox.getChildren().addAll(startText1, startText2, startHBox);
+		Scene origin = new Scene(firstScreen, 400, 400);
 		start.setScene(origin);
 	}
 
+	/////////////////////////////////Initial Display Above///////////////////
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		start = primaryStage;
