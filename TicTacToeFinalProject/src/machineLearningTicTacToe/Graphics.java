@@ -1,11 +1,14 @@
 package machineLearningTicTacToe;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -833,19 +836,60 @@ public class Graphics extends Application {
 		
 		//Greeting Text
 		Text startText1 = new Text("Welcome to Tic Tac Toe");
+		startText1.setFill(Color.DARKBLUE);
 		startText1.setStyle("-fx-font: 30 arial;");
 		
 		//Guidance Text
 		Text startText2 = new Text("Please Chose Player vs Player or Player vs Machine");
 		startText2.setStyle("-fx-font: 16 arial;");
+		startText2.setFill(Color.DARKBLUE);
 		
 		
 		Button playerVsPlayer = new Button("Player vs Player");
+		playerVsPlayer.setStyle("-fx-background-color: GAINSBORO");
+		
+		DropShadow shadow = new DropShadow();
+		//Adding the shadow when the mouse cursor is on
+		playerVsPlayer.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	playerVsPlayer.setEffect(shadow);
+		        }
+		});
+		//Removing the shadow when the mouse cursor is off
+		playerVsPlayer.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	playerVsPlayer.setEffect(null);
+		        }
+		});
+		
 		playerVsPlayer.setOnAction(e -> {
 			start.setScene(updateBoardPvP(true));
 			Game.resetGameState();
 		});
+		
+		
+		
 		Button playerVsMachine = new Button("Player vs Machine");
+		playerVsMachine.setStyle("-fx-background-color: GAINSBORO");
+		
+		DropShadow shadow2 = new DropShadow();
+		//Adding the shadow when the mouse cursor is on
+		playerVsMachine.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	playerVsMachine.setEffect(shadow2);
+		        }
+		});
+		//Removing the shadow when the mouse cursor is off
+		playerVsMachine.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		        	playerVsMachine.setEffect(null);
+		        }
+		});
+		
 		playerVsMachine.setOnAction(e -> {
 			MachineMove yaBoi = new MachineMove(1);
 			start.setScene(updateBoardPvM(true, yaBoi));
@@ -870,10 +914,7 @@ public class Graphics extends Application {
 		actionPane.setRight(playerVsMachine);
 		actionPane.setAlignment(playerVsMachine, Pos.BASELINE_LEFT);
 		
-//		HBox startHBox = new HBox(20);
-//		startHBox.getChildren().addAll(playerVsPlayer, playerVsMachine);
-//		VBox startVBox = new VBox(10);
-//		startVBox.getChildren().addAll(startText1, startText2, startHBox);
+
 		Scene origin = new Scene(firstScreen, 400, 400);
 		start.setScene(origin);
 	}
