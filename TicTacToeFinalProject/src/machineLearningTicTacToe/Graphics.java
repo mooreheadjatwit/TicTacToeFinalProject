@@ -125,6 +125,8 @@ public class Graphics extends Application {
 		}
 
 		Text pvmText = new Text("Player vs Player");
+		pvmText.setFill(Color.DARKBLUE);
+		pvmText.setStyle("-fx-font: 16 arial;");
 		VBox pvmDisplay = new VBox(20);
 		pvmDisplay.getChildren().add(pvmText);
 
@@ -384,7 +386,7 @@ public class Graphics extends Application {
 		board.add(bord8, 2, 2);
 		HBox pvmDisplay1 = new HBox(30);
 		pvmDisplay1.getChildren().addAll(pvmDisplay, board);
-		PvM = new Scene(pvmDisplay1, 1000, 800);
+		PvM = new Scene(pvmDisplay1, 755, 610);
 		return PvM;
 	}
 
@@ -409,6 +411,8 @@ public class Graphics extends Application {
 		}
 
 		Text pvmText = new Text("Player vs Machine");
+		pvmText.setFill(Color.DARKBLUE);
+		pvmText.setStyle("-fx-font: 16 arial;");
 		VBox pvmDisplay = new VBox(20);
 		pvmDisplay.getChildren().add(pvmText);
 
@@ -678,7 +682,7 @@ public class Graphics extends Application {
 		board.add(bord8, 2, 2);
 		HBox pvmDisplay1 = new HBox(30);
 		pvmDisplay1.getChildren().addAll(pvmDisplay, board);
-		PvM = new Scene(pvmDisplay1, 1000, 800);
+		PvM = new Scene(pvmDisplay1, 770, 610);
 		return PvM;
 	}
 
@@ -1186,7 +1190,7 @@ public class Graphics extends Application {
 		});
 
 		Button noAgain = new Button("Exit");
-		yesAgain.setStyle("-fx-background-color: GAINSBORO");
+		noAgain.setStyle("-fx-background-color: GAINSBORO");
 
 		DropShadow shadow1 = new DropShadow();
 		// Adding the shadow when the mouse cursor is on
