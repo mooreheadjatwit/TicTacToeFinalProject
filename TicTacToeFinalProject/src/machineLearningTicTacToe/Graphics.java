@@ -594,7 +594,7 @@ public class Graphics extends Application {
 		border6.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-				if (isValid(7)) {
+				if (isValid(6)) {
 					moveIndex[6] = 2;
 					setTurn();
 					Game.setGameState(moveIndex);
