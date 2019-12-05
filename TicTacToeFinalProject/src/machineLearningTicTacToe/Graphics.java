@@ -685,6 +685,7 @@ public class Graphics extends Application {
 
 	public static Scene tieScreen(boolean PvP) {
 		Text wins;
+		
 		Text loses;
 		Text ties;
 		if (PvP) {
@@ -718,6 +719,11 @@ public class Graphics extends Application {
 		});
 		Button choiceHome = new Button("Change GameMode");
 		choiceHome.setOnAction(e -> homeScreen());
+		
+//		BorderPane tiePane = new BorderPane();
+//		tiePane.setTop(tieText);
+//		tiePane.setAlignment(tieText, Pos.TOP_CENTER);
+		
 		HBox choiceHBox = new HBox(20);
 		choiceHBox.getChildren().addAll(yesAgain, noAgain);
 		VBox loseVBox = new VBox(10);
