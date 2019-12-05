@@ -45,6 +45,7 @@ public class Graphics extends Application {
 	static int numTiesPvP = 0;
 	static int numTiesPvM = 0;
 	private static boolean turn = false;
+
 	private static int[] moveIndex = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	public static int getMove() {
@@ -690,6 +691,19 @@ public class Graphics extends Application {
 
 ///////////////////////////////////////////////////Tie Screen Below//////////////////////////
 
+	
+	
+	/**
+	 * Sets all text to proper color and size.
+	 * Can be used in both PVP and PVM games
+	 * Drop shadow effect on all buttons.
+	 * Uses 3 border panes, the wrapper pane holds the center and bottom BorderPane.
+	 * Size is set to standard not board screen size of 500, 400.
+	 * Padding set on wrapper pane and bottom pane.
+	 *   
+	 * @param PvP
+	 * @return
+	 */
 	public static Scene tieScreen(boolean PvP) {
 		Text wins;
 		Text loses;
@@ -850,6 +864,19 @@ public class Graphics extends Application {
 	/////////////////////////////////////////////////////////// Win Screen PvM
 	/////////////////////////////////////////////////////////// Below////////////////////////////
 
+	
+	
+
+	/**
+	 * Sets all text to proper color and size.
+	 * Drop shadow effect on all buttons.
+	 * Uses 3 border panes, the wrapper pane holds the center and bottom BorderPane.
+	 * Size is set to standard not board screen size of 500, 400.
+	 * Padding set on wrapper pane and bottom pane.
+	 *   
+	 * @param PvP
+	 * @return
+	 */
 	public static Scene winScreenPvM(MachineMove yaBoi) {
 		playerWins++;
 		yaBoi.learn(2);
@@ -988,6 +1015,21 @@ public class Graphics extends Application {
 	////////////////////////////////////////////////////// Win Screen PvP
 	////////////////////////////////////////////////////// Below///////////////////////////////
 
+	
+	
+
+	/**
+	 * Sets all text to proper color and size.
+	 * Checks the move number for proper output
+	 * Can be used in both PVP and PVM games
+	 * Drop shadow effect on all buttons.
+	 * Uses 3 border panes, the wrapper pane holds the center and bottom BorderPane.
+	 * Size is set to standard not board screen size of 500, 400.
+	 * Padding set on wrapper pane and bottom pane.
+	 *   
+	 * @param PvP
+	 * @return
+	 */
 	public static Scene winScreenPvP(int moveNumber) {
 		Text winText;
 		if (moveNumber == 1) {
@@ -1129,7 +1171,7 @@ public class Graphics extends Application {
 //		winVBox.getChildren().addAll(winText, scoreText, playerXWin, playerOWin, ties, playAgain, choiceHBox,
 //				choiceHome);
 
-		Scene winScreen = new Scene(winPane, 500, 500);
+		Scene winScreen = new Scene(winPane, 500, 400);
 		return winScreen;
 	}
 
@@ -1139,6 +1181,19 @@ public class Graphics extends Application {
 	/////////////////////////////////////////////////////// Loss Screen
 	/////////////////////////////////////////////////////// Below/////////////////////////
 
+	
+
+	/**
+	 * Sets all text to proper color and size.
+	 * Only needed in machine competition
+	 * Drop shadow effect on all buttons.
+	 * Uses 3 border panes, the wrapper pane holds the center and bottom BorderPane.
+	 * Size is set to standard not board screen size of 500, 400.
+	 * Padding set on wrapper pane and bottom pane.
+	 *   
+	 * @param PvP
+	 * @return
+	 */
 	public static Scene loseScreen(MachineMove yaBoi) {
 		machineWins++;
 		yaBoi.learn(1);
@@ -1277,6 +1332,15 @@ public class Graphics extends Application {
 
 	///////////////////////////////////////// Initial Display below////////////
 
+	/**
+	 * Sets all text to proper color and size.
+	 * Drop shadow effect on all buttons.
+	 * Uses 1 border pane.
+	 * Size is set to standard not board screen size of 500, 400.
+	 *   
+	 * @param PvP
+	 * @return
+	 */
 	public static void homeScreen() {
 
 		// Greeting Text
@@ -1285,7 +1349,7 @@ public class Graphics extends Application {
 		startText1.setStyle("-fx-font: 30 arial;");
 
 		// Guidance Text
-		Text startText2 = new Text("Please Chose Player vs Player or Player vs Machine");
+		Text startText2 = new Text("Please Choose Player vs Player or Player vs Machine");
 		startText2.setStyle("-fx-font: 16 arial;");
 		startText2.setFill(Color.DARKBLUE);
 
@@ -1360,7 +1424,7 @@ public class Graphics extends Application {
 		actionPane.setRight(playerVsMachine);
 		actionPane.setAlignment(playerVsMachine, Pos.BASELINE_LEFT);
 
-		Scene origin = new Scene(firstScreen, 400, 400);
+		Scene origin = new Scene(firstScreen, 500, 400);
 		start.setScene(origin);
 	}
 
