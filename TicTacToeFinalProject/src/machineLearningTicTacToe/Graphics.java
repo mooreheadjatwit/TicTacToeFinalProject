@@ -430,14 +430,15 @@ public class Graphics extends Application {
 		border0.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[0] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(0)) {
+					moveIndex[0] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -457,14 +458,15 @@ public class Graphics extends Application {
 		border1.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[1] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(1)) {
+					moveIndex[1] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -484,14 +486,15 @@ public class Graphics extends Application {
 		border2.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[2] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(2)) {
+					moveIndex[2] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -511,14 +514,15 @@ public class Graphics extends Application {
 		border3.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[3] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(3)) {
+					moveIndex[3] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -538,14 +542,15 @@ public class Graphics extends Application {
 		border4.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[4] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(4)) {
+					moveIndex[4] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -565,14 +570,15 @@ public class Graphics extends Application {
 		border5.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[5] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(5)) {
+					moveIndex[5] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -592,14 +598,15 @@ public class Graphics extends Application {
 		border6.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[6] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(7)) {
+					moveIndex[6] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -619,14 +626,15 @@ public class Graphics extends Application {
 		border7.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[7] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(7)) {
+					moveIndex[7] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
@@ -646,14 +654,15 @@ public class Graphics extends Application {
 		border8.setOnMouseClicked(event -> {
 
 			if (event.getButton() == MouseButton.PRIMARY) {
-
-				moveIndex[8] = 2;
-				setTurn();
-				Game.setGameState(moveIndex);
-				if (Game.checkVictory(2) || Game.checkTie()) {
-					start.setScene(updateBoardPvM(false, yaBoi));
-				} else {
-					yaBoi.play();
+				if(isValid(8)) {
+					moveIndex[8] = 2;
+					setTurn();
+					Game.setGameState(moveIndex);
+					if (Game.checkVictory(2) || Game.checkTie()) {
+						start.setScene(updateBoardPvM(false, yaBoi));
+					} else {
+						yaBoi.play();
+					}
 				}
 				start.setScene(updateBoardPvM(false, yaBoi));
 			}
