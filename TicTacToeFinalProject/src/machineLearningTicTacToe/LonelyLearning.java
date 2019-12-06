@@ -16,9 +16,9 @@ public class LonelyLearning {
 		int tie = 0;
 		int one = 0;
 		int two = 0;
-		//these are to be changed at will
-		int numGames = 25;
-		boolean random = false;
+		//these \/ \/ are to be changed at will 
+		int numGames = 100;
+		boolean random = true;
 		/////////////////////////////
 		for(int i = 0; i < numGames; i++) {
 			int outcome = mvmGame(random);

@@ -34,6 +34,10 @@ public class Machine {
 		moves.clear();
 	}
 	
+	/**
+	 * This is an overload of the constructor to default to allow for different move numbers.
+	 * @param moveNumber
+	 */
 	public Machine(int moveNumber) {
 		try {
 			brain = readData();
@@ -57,13 +61,11 @@ public class Machine {
 		if(this.moveNumber == 2) {
 			tri = m.findMutation(a);
 		} else if(this.moveNumber == 1) {
+			//to use the same logic on the opposite side it is needed to ivnert the gameState using invert()
 			tri = m.findMutation(invert(a));
 		}
 		//re-arranges the weight matrix to be applicable to this mutation
-		//System.out.println(tri);
 		int[] weights = m.unMutate(brain.get(tri));
-		//System.out.println(Arrays.toString(weights));
-		//System.out.println(tri);
 		int sum = 0;
 		int totalOptions = 0;
 		for (int w : weights) {
@@ -72,11 +74,13 @@ public class Machine {
 				sum += w;
 			}
 		}
+		//if there is no weight in the whole array then there is a problem 
 		if(sum == 0) {
 			System.out.println("This option has killed itself");
 			System.out.println(tri);
 			System.exit(0);
 		}
+		//my selection method doesn't like single choices so this way if there's only one choice it picks it. 
 		if(totalOptions == 1) {
 			for (int i = 0; i < 9; i++) {
 				if(weights[i] > 0) {
@@ -95,18 +99,20 @@ public class Machine {
 				working += weights[i % 9];
 			
 				if(working >= spin) {
+					//validates that this is a valid move
 					if(a[i % 9] == 0) {
 						moves.add(tri);
 						moves.add(m.mutateIndex(i % 9));
 						return i % 9;
 					} else {
-						System.out.println("A think error has occured. Trying again.------------");
+						System.out.println("A think error has occured. Trying again...");
+						//basically recursive but only to attempt error correction. Not good practice but it works for the most part
 						return this.think(a);
 					}
 				}
 			}
 		}
-		System.out.println("A think error has occured. Trying again.");
+		System.out.println("A think error has occured. Trying again...");
 		return this.think(a);
 	}
 	
@@ -115,16 +121,19 @@ public class Machine {
 	 * @param o  [0 : tie, 1 : win, 2 : loss]
 	 */
 	public void learn(int o) {
+		//values by which the weight is changed for each respective outcome 'o'
 		int win = 3;
 		int tie = 0;
 		int loss = -3;
+		//re-reads in the data in case it has been updated during runtime. 
+		//(when LonelyLearning is running 2 machines they can learn both sides at once)
 		try {
 			this.brain = readData();
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
+		//loop goes through each pair of (trinary value, index played)
 		for (int i = 0; i < moves.size(); i += 2) {
-			
 			brain.get(moves.get(i))[moves.get(i + 1)] += (o == 0)? tie : (o == 1)? win : loss;
 			if(brain.get(moves.get(i))[moves.get(i + 1)] < 0) {
 				brain.get(moves.get(i))[moves.get(i + 1)] = 0;
@@ -133,6 +142,7 @@ public class Machine {
 			for(int j = 0; j < 9; j++) {
 				sum += brain.get(moves.get(i))[j];
 			}
+			//this provides protection from the bot becoming stuck in its ways because of overpowered weights
 			if(sum / 9 > 50) {
 				for(int k = 0; k < 9; k++) {
 					brain.get(moves.get(i))[k] = (int)Math.ceil(brain.get(moves.get(i))[k]/3.0);
@@ -146,6 +156,11 @@ public class Machine {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param array
+	 * @return array with 1's and 2's switched.w
+	 */
 	public static int[] invert(int[] array) {
 		int[] temp = {0,0,0,0,0,0,0,0,0};
 		for(int i = 0; i < array.length; i++) {
