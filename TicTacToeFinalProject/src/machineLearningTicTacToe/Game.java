@@ -17,7 +17,10 @@ public class Game {
 		resetGameState();
 	}
 	
-	public static void printGameState() {//This is only used to test console playing
+	/*
+	 * only used when testing before graphics or to make LonelyLearning visual
+	 */
+	public static void printGameState() {
 		for(int i = 1; i < 10; i++) {
 			System.out.printf("%s|", (gameState[i-1] == 0)? " " : (gameState[i-1] == 1)? "o" : "x");
 			if(i%3 ==0) {
@@ -44,7 +47,8 @@ public class Game {
 	 * @param condition  '1' or '2' to specify which player to check for victory
 	 * @return true if won, else: false
 	 */
-	public static boolean checkVictory(int condition) {//If there are 3 in a row that are all equal to the condition it is true
+	public static boolean checkVictory(int condition) {
+		//If there are 3 in a row that are all equal to the condition it is true
 		if(gameState[4] == condition) {
 			if(gameState[1] == gameState[4] && gameState[4] == gameState[7]) {
 				return true;
@@ -89,7 +93,9 @@ public class Game {
 		return false;
 	}
 	
+	
 	public static void resetGameState() {
+		//sets each value to 0 - blank
 		for(int i = 0; i < 9; i++) {
 			gameState[i] = 0;
 		}

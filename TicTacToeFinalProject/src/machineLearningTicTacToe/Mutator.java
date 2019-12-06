@@ -93,6 +93,11 @@ public class Mutator {
 		return a;
 	}
 	
+	/**
+	 * mutateIndex does the stored mutations on a given index so the learn function can modify the correct value.
+	 * @param a
+	 * @return
+	 */
 	public int mutateIndex(int a) {
 		int[] temp = {0,0,0,0,0,0,0,0,0};
 		temp[a] = 1;

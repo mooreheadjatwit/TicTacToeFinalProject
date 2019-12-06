@@ -15,6 +15,7 @@ public class PlayerMove implements iPlayer {
 	
 	@Override
 	public void setMove(int move) {
+		//checks if it's a reasonable move to make
 		if(move < 9 && move >= 0) {
 			moveIndex[move] = this.moveNumber;
 			Game.setGameState(moveIndex);
@@ -47,5 +48,6 @@ public class PlayerMove implements iPlayer {
 
 	public void play() {
 		this.moveIndex = Game.getGameState();
+		//here was the statement to call setMove with input from graphics but the functionality has been moved into the new graphics.
 	}
 }

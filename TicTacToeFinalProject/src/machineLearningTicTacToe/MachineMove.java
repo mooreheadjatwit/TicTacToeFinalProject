@@ -31,6 +31,7 @@ public class MachineMove implements iPlayer {
 	
 	@Override
 	public void setMove(int move) {
+		//checks if it's a reasonable move to make
 		if(move < 0 || move > 8) {
 			System.out.println("Error: setMove used incorrectly");
 		}
@@ -52,7 +53,7 @@ public class MachineMove implements iPlayer {
 	}
 	
 	/**
-	 * The same as play() but it plays randomly and doesnt try to learn from it.
+	 * The same as play() but it plays randomly and doesn't try to learn from it.
 	 */
 	public void randomPlay() {
 		this.moveIndex = Game.getGameState();

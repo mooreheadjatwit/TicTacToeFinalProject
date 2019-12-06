@@ -157,7 +157,7 @@ public class Machine {
 	}
 	
 	/**
-	 * 
+	 * When playing as player 1 instead of player 2 it's nessessary to have an invert function.
 	 * @param array
 	 * @return array with 1's and 2's switched.w
 	 */
