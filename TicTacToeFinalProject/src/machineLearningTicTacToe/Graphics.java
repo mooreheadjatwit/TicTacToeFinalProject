@@ -1218,7 +1218,6 @@ public class Graphics extends Application {
 		ties.setFill(Color.DARKBLUE);
 		ties.setStyle("-fx-font: 16 arial;");
 
-		Text playAgain = new Text("Would you like to play again or change GameMode?");
 		Button yesAgain = new Button("Replay");
 
 		yesAgain.setStyle("-fx-background-color: GAINSBORO");
