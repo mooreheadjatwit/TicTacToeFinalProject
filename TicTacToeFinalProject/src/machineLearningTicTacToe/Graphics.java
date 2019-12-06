@@ -818,35 +818,35 @@ public class Graphics extends Application {
 		BorderPane tiePane = new BorderPane();
 		tiePane.setPadding(new Insets(10, 20, 10, 20));
 		tiePane.setTop(tieText);
-		tiePane.setAlignment(tieText, Pos.CENTER);
+		BorderPane.setAlignment(tieText, Pos.CENTER);
 
 		BorderPane centerPane = new BorderPane();
 		centerPane.setPadding(new Insets(10, 20, 10, 20));
 		tiePane.setCenter(centerPane);
 
 		centerPane.setTop(scoreText);
-		centerPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
+		BorderPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
 
 		centerPane.setRight(wins);
-		centerPane.setAlignment(wins, Pos.CENTER);
+		BorderPane.setAlignment(wins, Pos.CENTER);
 
 		centerPane.setCenter(loses);
-		centerPane.setAlignment(loses, Pos.CENTER);
+		BorderPane.setAlignment(loses, Pos.CENTER);
 
 		centerPane.setLeft(ties);
-		centerPane.setAlignment(ties, Pos.CENTER);
+		BorderPane.setAlignment(ties, Pos.CENTER);
 
 		BorderPane bottomPane = new BorderPane();
 		tiePane.setBottom(bottomPane);
 
 		bottomPane.setLeft(yesAgain);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 		bottomPane.setRight(noAgain);
-		bottomPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
+		BorderPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
 
 		bottomPane.setBottom(choiceHome);
-		bottomPane.setAlignment(choiceHome, Pos.BASELINE_CENTER);
+		BorderPane.setAlignment(choiceHome, Pos.BASELINE_CENTER);
 
 		// Center borderpane
 
@@ -970,35 +970,35 @@ public class Graphics extends Application {
 		BorderPane winPane = new BorderPane();
 		winPane.setPadding(new Insets(10, 20, 10, 20));
 		winPane.setTop(winText);
-		winPane.setAlignment(winText, Pos.CENTER);
+		BorderPane.setAlignment(winText, Pos.CENTER);
 
 		BorderPane centerPane = new BorderPane();
 		winPane.setCenter(centerPane);
 
 		centerPane.setLeft(ties);
-		centerPane.setAlignment(ties, Pos.CENTER);
+		BorderPane.setAlignment(ties, Pos.CENTER);
 
 		centerPane.setCenter(playerOWin);
-		centerPane.setAlignment(playerOWin, Pos.CENTER);
+		BorderPane.setAlignment(playerOWin, Pos.CENTER);
 
 		centerPane.setRight(playerXWin);
-		centerPane.setAlignment(playerXWin, Pos.CENTER);
+		BorderPane.setAlignment(playerXWin, Pos.CENTER);
 
 		centerPane.setTop(scoreText);
-		centerPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
+		BorderPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
 
 		BorderPane bottomPane = new BorderPane();
 		winPane.setBottom(bottomPane);
 		bottomPane.setPadding(new Insets(10, 20, 10, 20));
 
 		bottomPane.setLeft(yesAgain);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 		bottomPane.setRight(noAgain);
-		bottomPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
+		BorderPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
 
 		bottomPane.setCenter(choiceHome);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 //		HBox choiceHBox = new HBox(20);
 //		choiceHBox.getChildren().addAll(yesAgain, noAgain);
@@ -1134,35 +1134,35 @@ public class Graphics extends Application {
 		BorderPane winPane = new BorderPane();
 		winPane.setPadding(new Insets(10, 20, 10, 10));
 		winPane.setTop(winText);
-		winPane.setAlignment(winText, Pos.CENTER);
+		BorderPane.setAlignment(winText, Pos.CENTER);
 
 		BorderPane centerPane = new BorderPane();
 		winPane.setCenter(centerPane);
 
 		centerPane.setLeft(ties);
-		centerPane.setAlignment(ties, Pos.CENTER);
+		BorderPane.setAlignment(ties, Pos.CENTER);
 
 		centerPane.setCenter(playerOWin);
-		centerPane.setAlignment(playerOWin, Pos.CENTER);
+		BorderPane.setAlignment(playerOWin, Pos.CENTER);
 
 		centerPane.setRight(playerXWin);
-		centerPane.setAlignment(playerXWin, Pos.CENTER);
+		BorderPane.setAlignment(playerXWin, Pos.CENTER);
 
 		centerPane.setTop(scoreText);
-		centerPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
+		BorderPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
 
 		BorderPane bottomPane = new BorderPane();
 		winPane.setBottom(bottomPane);
 		bottomPane.setPadding(new Insets(10, 20, 10, 20));
 
 		bottomPane.setLeft(yesAgain);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 		bottomPane.setRight(noAgain);
-		bottomPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
+		BorderPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
 
 		bottomPane.setCenter(choiceHome);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 //		
 //		HBox choiceHBox = new HBox(20);
@@ -1289,35 +1289,35 @@ public class Graphics extends Application {
 		BorderPane losePane = new BorderPane();
 		losePane.setPadding(new Insets(10, 20, 10, 10));
 		losePane.setTop(loseText);
-		losePane.setAlignment(loseText, Pos.CENTER);
+		BorderPane.setAlignment(loseText, Pos.CENTER);
 
 		BorderPane centerPane = new BorderPane();
 		losePane.setCenter(centerPane);
 
 		centerPane.setLeft(ties);
-		centerPane.setAlignment(ties, Pos.CENTER);
+		BorderPane.setAlignment(ties, Pos.CENTER);
 
 		centerPane.setCenter(playerWin);
-		centerPane.setAlignment(playerWin, Pos.CENTER);
+		BorderPane.setAlignment(playerWin, Pos.CENTER);
 
 		centerPane.setRight(machineWin);
-		centerPane.setAlignment(machineWin, Pos.CENTER);
+		BorderPane.setAlignment(machineWin, Pos.CENTER);
 
 		centerPane.setTop(scoreText);
-		centerPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
+		BorderPane.setAlignment(scoreText, Pos.BOTTOM_CENTER);
 
 		BorderPane bottomPane = new BorderPane();
 		losePane.setBottom(bottomPane);
 		bottomPane.setPadding(new Insets(10, 20, 10, 20));
 
 		bottomPane.setLeft(yesAgain);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 		bottomPane.setRight(noAgain);
-		bottomPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
+		BorderPane.setAlignment(noAgain, Pos.BASELINE_LEFT);
 
 		bottomPane.setCenter(choiceHome);
-		bottomPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(yesAgain, Pos.BASELINE_RIGHT);
 
 //		HBox choiceHBox = new HBox(20);
 //		choiceHBox.getChildren().addAll(yesAgain, noAgain);
@@ -1409,20 +1409,20 @@ public class Graphics extends Application {
 		BorderPane firstScreen = new BorderPane();
 
 		firstScreen.setTop(startText1);
-		firstScreen.setAlignment(startText1, Pos.TOP_CENTER);
+		BorderPane.setAlignment(startText1, Pos.TOP_CENTER);
 
 		firstScreen.setCenter(startText2);
-		firstScreen.setAlignment(startText2, Pos.CENTER);
+		BorderPane.setAlignment(startText2, Pos.CENTER);
 
 		BorderPane actionPane = new BorderPane();
 		firstScreen.setBottom(actionPane);
 		actionPane.setPadding(new Insets(10, 20, 10, 20));
 
 		actionPane.setLeft(playerVsPlayer);
-		actionPane.setAlignment(playerVsPlayer, Pos.BASELINE_RIGHT);
+		BorderPane.setAlignment(playerVsPlayer, Pos.BASELINE_RIGHT);
 
 		actionPane.setRight(playerVsMachine);
-		actionPane.setAlignment(playerVsMachine, Pos.BASELINE_LEFT);
+		BorderPane.setAlignment(playerVsMachine, Pos.BASELINE_LEFT);
 
 		Scene origin = new Scene(firstScreen, 500, 400);
 		start.setScene(origin);
