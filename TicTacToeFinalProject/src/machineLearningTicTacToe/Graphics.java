@@ -1441,3 +1441,31 @@ public class Graphics extends Application {
 		launch(args);
 	}
 }
+
+/*						Work Cited
+ * 
+ * 
+ * 
+ * “Release: JavaFX 2.2.” Using JavaFX UI Controls: Button | JavaFX 2 Tutorials and 
+ * Documentation, 27 Aug. 2013, docs.oracle.com/javafx/2/ui_controls/button.htm.
+ * 
+ * 
+ * TomJTomJ 1, et al. “How to Change the Text Font Size in Javafx?” Stack Overflow, 
+ * 1 Apr. 1964, stackoverflow.com/questions/22047457/how-to-change-the-text-font-size-in-javafx.
+ * 
+ * 
+ * 
+ * Rahman, Waliur RahmanWaliur. “Button Color Change in Javafx.” Stack Overflow, 
+ * 1 Apr. 1968, stackoverflow.com/questions/49149502/button-color-change-in-javafx.
+ * 
+ * 
+ * 
+ * Meyer, Sam De MeyerSam De. “Handle Mouse Event Anywhere with JavaFX.” Stack Overflow, 
+ * 1 Oct. 1963, stackoverflow.com/questions/18597939/handle-mouse-event-anywhere-with-javafx.
+ * 
+ * 
+ */
+
+
+
+
