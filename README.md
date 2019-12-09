@@ -4,25 +4,23 @@
 
 This project is a Tic-Tac-Toe game capable of machine learning AI and pvp play. It will use object oriented Java design and class inheritance to break the program into functional and collaboratable pieces. 
 
-## Deliverables
-
-Flow Chart 
-Features 
-UML 
-GitHub repo 
-design 
-Progress update 
-Make Github repo unloadable by everyone 
-Game Class 
-Main class 
-Game GUI and some Graphics 
-Work on machineMove 
-Work on playerMove class and player interface 
-Continue machineAi 
-Finish game graphics 
-Fix any issues with machineAi 
-Run a bunch of tests to have machine learn 
-Create presentation 
+## Getting Started
+### Install
+1. Clone this repository to Eclipse.
+2. Add the JavaFX External Jar to the build path for the project.
+### Run
+#### Run "Graphics.java" for the full experience.
+  1. Select what mode you want. 'PvP' is a two player game. 'PvM' is a one player game using the machine learning bot.
+  2. Left click on a tile to select it. In PvP turns will alternate. In PvM the Machine will go immediately after you.
+      At this time there is a bug that if you click close to the exact center of a tile it will not work. 
+  3. At the end of a game you can select to play again, exit, or switch gamemodes. 
+  4. If in PvM, the machine will write its new teachings to bigBrain.txt after each game.
+#### Run "LonelyLearning.java" to have the machine learn against itself. 
+  1. The variable numGames indicates how many games to run. On a good laptop I can do a little over 10 games per second.
+  2. The boolean random indicates whether it is playing against a random bot or a copy of itself.
+        When training I had it train 50/50.
+  3. When LonelyLearning, the gameState will be printed every move to console. 
+  4. The machine will learn after each game it wins or loses.
 
 ## Features 
 List all the features of your application in the order of priority.
@@ -32,14 +30,33 @@ List all the features of your application in the order of priority.
 4. Able to choose PVP or PVM 
 5. Repeating gameplay 
 6. Score keeper 
-7. Best of 3 or until someone wins 
-8. Victory or Loss Screen 
-9. Basic animations 
-10. Sound effects 
-11. Player name / leaderboard support 
-12. Side features (in the moment ideas) 
-*Note: Features after 5 are flexible. 
+7. Victory or Loss Screens 
+## Demo video 
 
+Upload your demo video to youtube and put a link here. Basically, the video content is very much like the quick live demo of your product with the followings:
+1. Project description
+2. How to run the app
+3. Quick walkthrough of all the features of your app
+
+Make it short and interesting.
+
+Sample: https://www.youtube.com/watch?v=Pr-JMqTkdEM
+
+How to record your screen: https://www.techradar.com/how-to/record-your-screen
+
+## References
+
+Release: JavaFX 2.2. Using JavaFX UI Controls: Button | JavaFX 2 Tutorials and Documentation, 27 Aug. 2013, docs.oracle.com/javafx/2/ui_controls/button.htm.
+
+TomJTomJ 1, et al. How to Change the Text Font Size in Javafx? Stack Overflow, 1 Apr. 1964, stackoverflow.com/questions/22047457/how-to-change-the-text-font-size-in-javafx.
+
+Rahman, Waliur RahmanWaliur. Button Color Change in Javafx. Stack Overflow, 1 Apr. 1968, stackoverflow.com/questions/49149502/button-color-change-in-javafx.
+
+Meyer, Sam De MeyerSam De. Handle Mouse Event Anywhere with JavaFX. Stack Overflow, 1 Oct. 1963, stackoverflow.com/questions/18597939/handle-mouse-event-anywhere-with-javafx.
+ 
+Modification of a method from StackOverflow User Andrey Adamovich : https://stackoverflow.com/questions/6548157/how-to-write-an-arraylist-of-strings-into-a-text-file
+
+Modification of a method found from StackOverFlow user YoYo : https://stackoverflow.com/questions/18838781/converting-string-array-to-an-integer-array
 ## Team members
 
 * Max Moynihan, Machine Learning Lead
