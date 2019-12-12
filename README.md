@@ -4,6 +4,9 @@
 
 This project is a Tic-Tac-Toe game capable of machine learning AI and pvp play. It will use object oriented Java design and class inheritance to break the program into functional and collaboratable pieces. 
 
+The graphics and user input are done with JavaFX and have much of the game logic built into the scenes that it transfers between.
+
+The Machine learning part of it is very simple and based off M.E.N.A.C.E (Machine Educable Noughts And Crosses Engine) https://www.mscroggs.co.uk/blog/19   The simple nature of tictactoe and the learning model allow it to be coded only using ArrayLists and simple arrays along with data IO for writing to the persistent brain storage. 
 ## Getting Started
 ### Install
 1. Clone this repository to Eclipse.
@@ -33,16 +36,7 @@ List all the features of your application in the order of priority.
 7. Victory or Loss Screens 
 ## Demo video 
 
-Upload your demo video to youtube and put a link here. Basically, the video content is very much like the quick live demo of your product with the followings:
-1. Project description
-2. How to run the app
-3. Quick walkthrough of all the features of your app
-
-Make it short and interesting.
-
-Sample: https://www.youtube.com/watch?v=Pr-JMqTkdEM
-
-How to record your screen: https://www.techradar.com/how-to/record-your-screen
+https://www.youtube.com/watch?v=2oOXGgB43XY
 
 ## References
 
