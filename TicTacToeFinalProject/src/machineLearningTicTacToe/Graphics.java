@@ -815,6 +815,8 @@ public class Graphics extends Application {
 
 		choiceHome.setOnAction(e -> homeScreen());
 
+		
+		//sets borderpane layout
 		BorderPane tiePane = new BorderPane();
 		tiePane.setPadding(new Insets(10, 20, 10, 20));
 		tiePane.setTop(tieText);
@@ -967,6 +969,8 @@ public class Graphics extends Application {
 
 		choiceHome.setOnAction(e -> homeScreen());
 
+		
+		//sets borderpane layout
 		BorderPane winPane = new BorderPane();
 		winPane.setPadding(new Insets(10, 20, 10, 20));
 		winPane.setTop(winText);
@@ -1131,6 +1135,7 @@ public class Graphics extends Application {
 
 		choiceHome.setOnAction(e -> homeScreen());
 
+		//sets borderpane layout
 		BorderPane winPane = new BorderPane();
 		winPane.setPadding(new Insets(10, 20, 10, 10));
 		winPane.setTop(winText);
@@ -1285,6 +1290,8 @@ public class Graphics extends Application {
 
 		choiceHome.setOnAction(e -> homeScreen());
 
+		
+		//sets borderpane layout
 		BorderPane losePane = new BorderPane();
 		losePane.setPadding(new Insets(10, 20, 10, 10));
 		losePane.setTop(loseText);
@@ -1405,6 +1412,8 @@ public class Graphics extends Application {
 			Game.resetGameState();
 		});
 
+		//sets borderpane layout
+		
 		BorderPane firstScreen = new BorderPane();
 
 		firstScreen.setTop(startText1);
