@@ -18,6 +18,8 @@ The Machine learning part of it is very simple and based off M.E.N.A.C.E (Machin
       At this time there is a bug that if you click close to the exact center of a tile it will not work. 
   3. At the end of a game you can select to play again, exit, or switch gamemodes. 
   4. If in PvM, the machine will write its new teachings to bigBrain.txt after each game.
+  5. The graphics are formated using nested BorderPanes. Buttons have a DropShadow animation. 
+  
 #### Run "LonelyLearning.java" to have the machine learn against itself. 
   1. The variable numGames indicates how many games to run. On a good laptop I can do a little over 10 games per second.
   2. The boolean random indicates whether it is playing against a random bot or a copy of itself.
