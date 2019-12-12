@@ -4,7 +4,7 @@
 
 This project is a Tic-Tac-Toe game capable of machine learning AI and pvp play. It will use object oriented Java design and class inheritance to break the program into functional and collaboratable pieces. 
 
-The graphics and user input are done with JavaFX and have much of the game logic built into the scenes that it transfers between.
+The graphics and user input are done without using sceneBuilder and written in JavaFX to have much of the game logic built into the scenes that it switches between.
 
 The Machine learning part of it is very simple and based off M.E.N.A.C.E (Machine Educable Noughts And Crosses Engine) https://www.mscroggs.co.uk/blog/19   The simple nature of tictactoe and the learning model allow it to be coded only using ArrayLists and simple arrays along with data IO for writing to the persistent brain storage. 
 ## Getting Started
